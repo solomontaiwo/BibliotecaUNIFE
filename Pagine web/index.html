@@ -11,10 +11,6 @@
             max-width: 100%;
         }
 
-        .h3[type="desc"] {
-            float: left;
-        }
-
         .submit {
             float: right;
             width: 20%;
@@ -34,21 +30,23 @@
     <hr><br>
 
     <fieldset>
-        <form action="Q1.html" method="POST">
-            <p>Ricerca di un libro inserendo il titolo (anche parziale) - nel caso in cui nessun parametro venga
-                specificato deve essere presentata la lista completa dei libri:</p>
+        <form action="query1.html" method="POST">
+
+            <p>Ricerca di un libro inserendo il titolo (anche parziale) - nel caso in cui nessun
+                parametro venga specificato deve essere presentata la lista completa dei libri comprese le informazioni
+                sintetiche del libro: titolo, isbn, in che succursale sono, ecc...</p>
             <input type="submit" class="submit" value="Cerca">
-            <h3 type="desc">Q1</h3>
+            <h3>Query 1</h3>
 
         </form>
     </fieldset>
 
     <fieldset>
-        <form action="Q2.php" method="POST">
+        <form action="query2.php" method="POST">
             <p>Visualizzazione di tutti i libri di un determinato autore, eventualmente suddivisi per anno di
                 pubblicazione:</p>
             <input type="submit" class="submit" value="Cerca">
-            <h3 type="desc">Q2</h3>
+            <h3>Query 2</h3>
 
         </form>
     </fieldset>
