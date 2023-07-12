@@ -4,9 +4,13 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Ricerca libro</title>
+    <title>Ricerca autore</title>
 
     <style>
+        .input {
+            text-align: center;
+        }
+
         .centerLink {
             display: flex;
             justify-content: center;
@@ -19,19 +23,23 @@
 
     <div style="text-align: center;"><a href="index.html"><img src="immagini/logo_unife.png" height="100px"
                 width="200px"></a></div>
-    <h1 style="text-align: center;">Gestione Biblioteca UNIFE - Ricerca libro</h1>
+    <h1 style="text-align: center;">Gestione Biblioteca UNIFE - Ricerca autore</h1>
 
     <hr><br>
 
-    <form action="php/getLibri.php" method="POST">
+    <form action="php/libriAutore.php" method="POST">
         <fieldset>
             <p style="text-align: center">
-                Ricerca di un libro inserendo il titolo (anche parziale). Nel caso in cui nessun
-                parametro venga specificato, viene presentata la lista completa dei libri.
+                Ricerca degli autori inserendo uno o più parametri (anche parziali)
             </p>
-            <input style="width: 100%; " type="text" name="nomeLibro" placeholder="Scrivi qui il nome del libro">
+            <input style="width: 100%; " type="text" name="nome" placeholder="Scrivi qui il nome dell'autore" t>
+            <input style="width: 100%; " type="text" name="cognome" placeholder="Scrivi qui il cognome dell'autore">
+            <input style="width: 100%; " type="text" name="data" placeholder="Scrivi qui la data dell'autore">
+            <input style="width: 100%; " type="text" name="luogo"
+                placeholder="Scrivi qui il luogo di nascita dell'autore">
             <input style="width: 100%; " type="submit" value="Invia" />
         </fieldset>
+
     </form>
 
     <br>
