@@ -2,10 +2,10 @@
     include_once('connessione.php');
 	$nomeLibro=$_POST["nomeLibro"];
 			
-    $sql = "SELECT Libro.Codice_libro, Libro.Titolo, Libro.ISBN, Libro.Lingua, Libro.Anno_pubblicazione, Libro.Codice_dipartimento 
+    $sql = "SELECT Libro.Cod_libro, Libro.Titolo, Libro.ISBN, Libro.Lingua, Libro.Anno_pub, Libro.Cod_dip
 
-	FROM Libreria.Libro 
-	WHERE Titolo LIKE '%".$nomeL."%'";
+	FROM BibliotecaUNIFE.Libro 
+	WHERE Titolo LIKE '%".$nomeLibro."%'";
     
     $result = mysqli_query($link, $sql);
     
