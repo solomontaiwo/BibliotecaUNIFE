@@ -11,6 +11,10 @@
             max-width: 100%;
         }
 
+        .h3[type="desc"] {
+            float: left;
+        }
+
         .submit {
             float: right;
             width: 20%;
@@ -26,108 +30,98 @@
 
     <div style="text-align: center;"><img src="immagini/logo_unife.png"></div>
 
-    <br>
     <hr><br>
 
     <fieldset>
         <form action="query1.html" method="POST">
-
+            <h3>Query 1</h3>
             <p>Ricerca di un libro inserendo il titolo (anche parziale) - nel caso in cui nessun
                 parametro venga specificato deve essere presentata la lista completa dei libri comprese le informazioni
                 sintetiche del libro: titolo, isbn, in che succursale sono, ecc...</p>
             <input type="submit" class="submit" value="Cerca">
-            <h3>Query 1</h3>
-
         </form>
     </fieldset>
 
     <fieldset>
         <form action="query2.php" method="POST">
-            <p>Visualizzazione di tutti i libri di un determinato autore, eventualmente suddivisi per anno di
-                pubblicazione:</p>
-            <input type="submit" class="submit" value="Cerca">
             <h3>Query 2</h3>
+            <p>Visualizzazione di tutti i libri di un determinato autore, eventualmente suddivisi per
+                anno di pubblicazione</p>
+            <input type="submit" class="submit" value="Cerca">
+        </form>
+    </fieldset>
+
+    <fieldset>
+        <form action="query3.html" method="POST">
+            <h3>Query 3</h3>
+            <p>Ricerca degli autori inserendo uno o più parametri (anche parziali), in forma libera o
+                eventualmente guidata (per esempio menù a tendina con i soli valori possibili)</p>
+            <input type="submit" class="submit" value="Cerca">
 
         </form>
     </fieldset>
 
     <fieldset>
-        <form action="Q3.html" method="POST">
-            <p>Ricerca degli autori inserendo uno o più parametri (anche parziali), in forma libera o eventualmente
-                guidata (per esempio menù a tendina con i soli valori possibili):</p>
+        <form action="query4.php" method="POST">
+            <h3>Query 4</h3>
+            <p>Consultare l’elenco degli utenti della biblioteca (con le informazioni principali)</p>
             <input type="submit" class="submit" value="Cerca">
-            <h3 type="desc">Q3</h3>
-
-        </form>
-    </fieldset>
-
-    <fieldset>
-        <form action="Q4.php" method="POST">
-            <p>Consultare l’elenco degli utenti della biblioteca (con le informazioni principali):</p>
-            <input type="submit" class="submit" value="Cerca">
-            <h3 type="desc">Q4</h3>
-
         </form>
     </fieldset>
 
     <fieldset>
         <form action="query5.php" method="POST">
-            <p>Ricerca di un utente della biblioteca e il suo storico dei prestiti (compresi quelli in corso):</p>
+            <h3>Query 5</h3>
+            <p>Ricerca di un utente della biblioteca e il suo storico dei prestiti (compresi quelli in corso)</p>
             <input type="submit" class="submit" value="cerca">
-            <h3 type="desc">Query 5</h3>
 
         </form>
     </fieldset>
 
     <fieldset>
         <form action="query6.php" method="POST">
-            <p>Consultare lo storico dei prestiti:</p>
+            <h3>Query 6</h3>
+            <p>Consultare lo storico dei prestiti</p>
             <input type="submit" class="submit" value="Cerca">
-            <h3 type="desc">Q6</h3>
-
         </form>
     </fieldset>
 
     <fieldset>
         <form action="query7.php" method="POST">
+            <h3>Query 7</h3>
             <p>Ricerca dei prestiti effettuati in un range di date – nel caso in cui non vengano inserite date deve
-                mostrare i prossimi in scadenza (quelli che scadranno in futuro):</p>
+                mostrare i prossimi in scadenza (quelli che scadranno in futuro)</p>
             <input type="submit" class="submit" value="Cerca">
-            <h3 type="desc">Q7</h3>
 
         </form>
     </fieldset>
-    <br>
 
-    <hr><br>
     <fieldset>
         <form action="query8_a.html" method="POST">
-            <p>Numero di libri pubblicati in un determinato anno:</p>
+            <h3>Query 8.a</h3>
+            <p>Numero di libri pubblicati in un determinato anno</p>
             <input type="submit" class="submit" value="Cerca">
-            <h3 type="desc">Query 8.a</h3>
-
         </form>
     </fieldset>
 
     <fieldset>
         <form action="query8_b.php" method="POST">
-            <p>Numero di prestiti effettuati in una determinata succursale:</p>
+            <h3>Query 8.b</h3>
+            <p>Numero di prestiti effettuati in una determinata succursale</p>
             <input type="submit" class="submit" value="Cerca">
-            <h3 type="desc">Query 8.b</h3>
-
         </form>
     </fieldset>
 
     <fieldset>
         <form action="query8_c.php" method="POST">
-            <p>Numero di libri per autore:</p>
+            <h3>Query 8.c</h3>
+            <p>Numero di libri per autore</p>
             <input type="submit" class="submit" value="Cerca">
-            <h3 type="desc">Query 8.c</h3>
-
         </form>
     </fieldset>
 
     <br>
+    <hr>
 
     <footer>
         <p>Basi di dati 2021/22 - Progetto di Gaia Marzola e Solomon Olamide Taiwo (Gruppo 6)</p>
