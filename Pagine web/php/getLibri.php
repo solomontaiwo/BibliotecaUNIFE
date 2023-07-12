@@ -1,8 +1,7 @@
 <?php 
-	$nomeLibro=$_POST["nomeL"];
-	
-	include_once('connessione.php');
-		
+    include_once('connessione.php');
+	$nomeLibro=$_POST["nomeLibro"];
+			
     $sql = "SELECT Libro.Codice_libro, Libro.Titolo, Libro.ISBN, Libro.Lingua, Libro.Anno_pubblicazione, Libro.Codice_dipartimento 
 
 	FROM Libreria.Libro 
@@ -103,7 +102,7 @@
 			Ricerca di un libro inserendo il titolo (anche parziale) <br>
 			nel caso in cui nessun parametro venga specificato deve essere presentata la lista completa dei libri.
 		</p>
-				<input  style="width: 98.3%; " type="text" name="nomeL" placeholder="Scrivi qui il nome del libro">
+				<input  style="width: 100%; " type="text" name="nomeLibro" placeholder="Scrivi qui il nome del libro">
         <input style="width: 100%; " type="submit" value="Invia" />
             </fieldset>
 		</form>
