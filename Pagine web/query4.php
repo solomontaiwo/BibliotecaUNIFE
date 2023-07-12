@@ -116,7 +116,5 @@
     	</footer>
 
     </body>
-		
-    </body>
 
 </html>
