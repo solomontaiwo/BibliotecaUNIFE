@@ -34,68 +34,25 @@
 				vertical-align: middle;
 			}
 
-			.main_div {
-                text-align:center;
-                right: 0%;
-                height: 100%;
-                left: 0%;
-				top:0%;
-                width: 60px;
-                background-color: rgb(19, 48, 90);
-				border: 1px #0096bfab solid;
-  				
-  				
+			.centerLink {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        	}
 
-                
-            }
-
-			a[type="menu"] {
-
-				border: 1px #0096bfab solid;
-  				border: 3px var(--focus) solid;
-  				border-radius: 10px;
-				padding: 5px;
-
-            }
-
-			a[type="im"] {
-
-				right: 0%;
-				height: 100%;
-
-				top:80%;
-				width: 60px;
-
-			}
 		</style>
     </head>
 
     <body>
 
-	<div class="main_div" style="position:fixed;">
-			<hr style="width: 30px;">
-		<a href="../index.html"><img src="../immagini/home.png"/></a><hr style="width: 30px;">
-		
-		<br>
-		
-		<a style="color: rgb(219, 80, 15);" type="menu" href="../Q1.html">Q1</a><br><br>
-		<a type="menu" href="../Q2.php">Q2</a> <br><br>
-		<a type="menu" href="../Q3.html">Q3</a> <br><br>
-		<a type="menu" href="../Q4.php">Q4</a> <br><br>
-		<a type="menu" href="../Q5.php">Q5</a> <br><br>
-		<a type="menu" href="../Q6.php">Q6</a> <br><br>
-		<a type="menu" href="../Q7.php">Q7</a> <br><br><hr style="width: 30px;"><br>
-		<a type="menu" href="../Q8_1.html">Q8.1</a> <br><br>
-		<a type="menu" href="../Q8_2.php">Q8.2</a> <br><br>
-		<a type="menu" href="../Q8_3.php">Q8.3</a> <br><br><hr style="width: 30px;"><br>
-		<a type="menu" href="../QueryExtra1.html">QE1</a> <br><br>
-		<a type="menu" href="../QueryExtra2.php">QE2</a> <br><br><hr style="width: 30px;">
-		<a><img src="../immagini/logo_miniPNG.png"/></a>
-		</div>
+	<div style="text-align: center;"><a href="../index.html"><img src="../immagini/logo_unife.png" height="100px"
+                width="200px"></a></div>
+    <h1 style="text-align: center;">Gestione Biblioteca UNIFE - Ricerca libro</h1>
+
+	<hr><br>
 
 		<form action="getLibri.php" method="POST">
 		<fieldset>
-            <h1 style="text-align:center">Ricerca di un libro</h1>
             <p style="text-align: center">
                 Ricerca di un libro inserendo il titolo (anche parziale). Nel caso in cui nessun
                 parametro venga specificato, viene presentata la lista completa dei libri.
@@ -106,19 +63,23 @@
     </form>
 
 		<table style="width:100%">
-  		<tr>
-    	<th>Titolo</th>
-    	<th>ISBN</th>
-		<th>Lingua</th>
-		<th>Anno pubblicazione</th>
-  		</tr>
-		  <?php echo $Html?>
+			<tr>
+				<th>Titolo</th>
+				<th>ISBN</th>
+				<th>Lingua</th>
+				<th>Anno pubblicazione</th>
+			</tr>
+			<?php echo $Html?>
 		</table>
 
-		<br>
+		<div class="centerLink"><a href="../index.html" style="text-align:center;">Torna alla homepage</a></div>
 
-    <a href="index.html" style="text-align:center">Torna alla home</a>
-		
+		<br><hr>
+
+		<footer style="text-align: center;">
+			<p>Basi di dati 2021/22 - Progetto di Gaia Marzola e Solomon Olamide Taiwo (Gruppo n. 6)</p>
+    	</footer>
+
     </body>
 	
 

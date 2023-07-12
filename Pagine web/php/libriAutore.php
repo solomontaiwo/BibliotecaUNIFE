@@ -1,8 +1,8 @@
 <?php 
 	$nome=$_POST["nome"];
-    $cognome=$_POST["cognome"];
-    $data=$_POST["data"];
-    $luogo=$_POST["luogo"];
+  $cognome=$_POST["cognome"];
+  $data=$_POST["data"];
+  $luogo=$_POST["luogo"];
 
 	include_once('connessione.php');
 	
@@ -22,47 +22,63 @@
 <!DOCTYPE html>
 <html lang="it">
     <head>
-        <meta charset="utf-8">
+      <meta charset="utf-8">
 		        
-		<title>Ricerca autore</title>
+      <title>Ricerca autore</title>
 
-		<style>
-			body {
-				max-width: 80%;
-			}
+      <style>
 
-			table, td, th {
-				text-align:center;
-				width: 100%;
-				vertical-align: middle;
-			}
-		</style>
+        table, td, th {
+          text-align:center;
+          width: 100%;
+          vertical-align: middle;
+        }
+
+        .centerLink {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+        }
+        
+      </style>
     </head>
 
     <body>
 
-		<form action="libriAutore.php" method="POST">
-            <fieldset>
-                <h1 style="text-align:center">Ricerca di un autore con uno o più parametri</h1>
-                <p style="text-align: center">Ricerca degli autori inserendo uno o più parametri (anche parziali)</p>
-                <input style="width: 100%; " type="text" name="nome" placeholder="Scrivi qui il nome dell'autore">
-                <input style="width: 100%; " type="text" name="cognome" placeholder="Scrivi qui il cognome dell'autore">
-                <input style="width: 100%; " type="text" name="data" placeholder="Scrivi qui la data dell'autore">
-                <input style="width: 100%; " type="text" name="luogo" placeholder="Scrivi qui il luogo di nascita dell'autore">
-                <input style="width: 100%; " type="submit" value="Invia" />
-            </fieldset>
-		</form>
+      <div style="text-align: center;"><a href="../index.html"><img src="../immagini/logo_unife.png" height="100px"
+                  width="200px"></a></div>
+      <h1 style="text-align: center;">Gestione Biblioteca UNIFE - Ricerca autore</h1>
 
-		<table style="width:100%">
-            <tr>
-            <th>Nome</th>
-            <th>Cognome</th>
-            <th>Data di nascita</th>
-            <th>Luogo di nascita</th>
-            </tr>
-            <?php echo $Html?>
-		</table>
-		
+      <hr><br>
+      <form action="libriAutore.php" method="POST">
+              <fieldset>
+                  <p style="text-align: center">Ricerca degli autori inserendo uno o più parametri (anche parziali)</p>
+                  <input style="width: 100%; " type="text" name="nome" placeholder="Scrivi qui il nome dell'autore">
+                  <input style="width: 100%; " type="text" name="cognome" placeholder="Scrivi qui il cognome dell'autore">
+                  <input style="width: 100%; " type="text" name="data" placeholder="Scrivi qui la data dell'autore">
+                  <input style="width: 100%; " type="text" name="luogo" placeholder="Scrivi qui il luogo di nascita dell'autore">
+                  <input style="width: 100%; " type="submit" value="Invia" />
+              </fieldset>
+      </form>
+
+      <table style="width:100%">
+              <tr>
+              <th>Nome</th>
+              <th>Cognome</th>
+              <th>Data di nascita</th>
+              <th>Luogo di nascita</th>
+              </tr>
+              <?php echo $Html?>
+      </table>
+
+      <div class="centerLink"><a href="../index.html" style="text-align:center;">Torna alla homepage</a></div>
+
+      <br><hr>
+
+      <footer style="text-align: center;">
+        <p>Basi di dati 2021/22 - Progetto di Gaia Marzola e Solomon Olamide Taiwo (Gruppo n. 6)</p>
+        </footer>
+      
     </body>
 
 </html>
