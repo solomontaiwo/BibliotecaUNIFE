@@ -31,55 +31,57 @@ mysqli_close($link);
 
 <!DOCTYPE html>
 <html lang="it">
-    <head>
-        <meta charset="utf-8">
 
-		<title>Ricerca utente e storico</title>
+<head>
+    <meta charset="utf-8">
 
-		<style>
-			table, td, th {
-				text-align:center;
-				width: 100%;
-				vertical-align: middle;
-			}
+    <title>Ricerca utente e storico</title>
 
-            .centerLink {
+    <style>
+        table,
+        td,
+        th {
+            text-align: center;
+            width: 100%;
+            vertical-align: middle;
+        }
+
+        .centerLink {
             display: flex;
             justify-content: center;
             align-items: center;
-            }
-		</style>
-    </head>
+        }
+    </style>
+</head>
 
-    <body>
+<body>
 
-        <div style="text-align: center;"><a href="../index.html"><img src="../immagini/logo_unife.png" height="100px"
-                        width="200px"></a></div>
-        <h1 style="text-align: center;">Gestione Biblioteca UNIFE - Ricerca utente e storico</h1>
+    <div style="text-align: center;"><a href="../index.html"><img src="../immagini/logo_unife.png" height="100px" width="200px"></a></div>
+    <h1 style="text-align: center;">Gestione Biblioteca UNIFE - Ricerca utente e storico</h1>
 
-        <hr><br>
+    <hr><br>
 
-		<form action="query5.php" method="POST">
+    <form action="query5.php" method="POST">
         <fieldset>
 
-		    <p style="text-align: center">
-		    Ricerca di un utente della biblioteca e il suo storico dei prestiti
-		    (compresi quelli in corso)
-		    </p>
+            <p style="text-align: center">
+                Ricerca di un utente della biblioteca e il suo storico dei prestiti
+                (compresi quelli in corso)
+            </p>
 
-		  	<input style="width:100%" type="text" name="nome" placeholder="Scrivi qui il nome dell'utente">
-            <input  style="width:100%" type="text" name="cognome" placeholder="Scrivi qui il cognome dell'utente">
-            <input  style="width:100%" type="text" name="matricola" placeholder="Scrivi qui la matricola dell'utente">
+            <input style="width:100%" type="text" name="nome" placeholder="Scrivi qui il nome dell'utente">
+            <input style="width:100%" type="text" name="cognome" placeholder="Scrivi qui il cognome dell'utente">
+            <input style="width:100%" type="text" name="matricola" placeholder="Scrivi qui la matricola dell'utente">
             <input style="width: 100%; " type="submit" value="Invia" />
 
             <br>
 
         </fieldset>
-		</form>
-		<h3>Totale risultati trovati: <?php echo $TotTupleT; ?></h3>
+    </form>
+    <h3>Totale risultati trovati: <?php echo $TotTupleT; ?></h3>
 
-		<table style="width:100%">
-            <tr>
+    <table style="width:100%">
+        <tr>
             <th>Matricola</th>
             <th>Nome</th>
             <th>Cognome</th>
@@ -88,24 +90,24 @@ mysqli_close($link);
             <th>Sesso</th>
             <th>Data di nascita</th>
             <th>Storico prestiti</th>
-            </tr>
-            <?php echo $Html ?>
+        </tr>
+        <?php echo $Html ?>
 
-		</table>
+    </table>
 
-		<div  style="text-align:center">
-		<?php echo $htmlPage; ?>
-		</div>
+    <div style="text-align:center">
+        <?php echo $htmlPage; ?>
+    </div>
 
-        <div class="centerLink"><a href="../index.html" style="text-align:center;">Torna alla homepage</a></div>
+    <div class="centerLink"><a href="../index.html" style="text-align:center;">Torna alla homepage</a></div>
 
-		<br><hr>
+    <br>
+    <hr>
 
-		<footer style="text-align: center;">
-			<p>Basi di dati 2021/22 - Progetto di Gaia Marzola e Solomon Olamide Taiwo (Gruppo n. 6)</p>
-    	</footer>
+    <footer style="text-align: center;">
+        <p>Basi di dati 2021/22 - Progetto di Gaia Marzola e Solomon Olamide Taiwo (Gruppo n. 6)</p>
+    </footer>
 
-    </body>
+</body>
 
 </html>
-

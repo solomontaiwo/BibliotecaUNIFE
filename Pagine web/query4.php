@@ -58,63 +58,65 @@ mysqli_close($link);
 
 <!DOCTYPE html>
 <html lang="it">
-    <head>
-        <meta charset="utf-8">
 
-		<title>Elenco utenti</title>
+<head>
+    <meta charset="utf-8">
 
-		<style>
-			table, td, th {
-				text-align:center;
-				width: 100%;
-				vertical-align: middle;
-			}
+    <title>Elenco utenti</title>
 
-            .centerLink {
+    <style>
+        table,
+        td,
+        th {
+            text-align: center;
+            width: 100%;
+            vertical-align: middle;
+        }
+
+        .centerLink {
             display: flex;
             justify-content: center;
             align-items: center;
-            }
+        }
+    </style>
+</head>
 
-		</style>
-    </head>
+<body>
 
-    <body>
+    <div style="text-align: center;"><a href="../index.html"><img src="../immagini/logo_unife.png" height="100px" width="200px"></a></div>
+    <h1 style="text-align: center;">Gestione Biblioteca UNIFE - Elenco utenti</h1>
 
-        <div style="text-align: center;"><a href="../index.html"><img src="../immagini/logo_unife.png" height="100px"
-                    width="200px"></a></div>
-        <h1 style="text-align: center;">Gestione Biblioteca UNIFE - Elenco utenti</h1>
+    <hr><br>
 
-        <hr><br>
+    <h4 style="text-align:center">Pagina <?php echo $index + 1; ?> di <?php echo $Npage; ?></h4>
 
-        <h4 style="text-align:center">Pagina <?php echo $index + 1; ?> di <?php echo $Npage; ?></h4>
+    <h3>Totale utenti trovati: <?php echo $TotTupleT; ?></h3>
+    <table style="width:100%;">
+        <tr>
+            <th>Matricola</th>
+            <th>Nome</th>
+            <th>Cognome</th>
+            <th>Numero di telefono</th>
+            <th>Indirizzo</th>
+            <th>Sesso</th>
+            <th>Data di nascita</th>
+        </tr>
+        <?php echo $Html ?>
 
-		<h3>Totale utenti trovati: <?php echo $TotTupleT; ?></h3>
-		<table style="width:100%;">
-  		<tr>
-    	<th>Matricola</th>
-    	<th>Nome</th>
-    	<th>Cognome</th>
-		<th>Numero di telefono</th>
-		<th>Indirizzo</th>
-		<th>Sesso</th>
-		<th>Data di nascita</th>
-  		</tr>
-		  <?php echo $Html ?>
+    </table>
+    <div style="text-align:center">
+        <?php echo $htmlPage; ?>
+    </div>
 
-		</table>
-		<div  style="text-align:center">
-		<?php echo $htmlPage; ?>
-		</div>
+    <div class="centerLink"><a href="../index.html" style="text-align:center;">Torna alla homepage</a></div>
 
-        <div class="centerLink"><a href="../index.html" style="text-align:center;">Torna alla homepage</a></div>
+    <br>
+    <hr>
 
-		<br><hr>
+    <footer style="text-align: center;">
+        <p>Basi di dati 2021/22 - Progetto di Gaia Marzola e Solomon Olamide Taiwo (Gruppo n. 6)</p>
+    </footer>
 
-		<footer style="text-align: center;">
-			<p>Basi di dati 2021/22 - Progetto di Gaia Marzola e Solomon Olamide Taiwo (Gruppo n. 6)</p>
-    	</footer>
-
-    </body>
+</body>
 
 </html>
