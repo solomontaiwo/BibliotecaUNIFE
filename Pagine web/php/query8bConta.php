@@ -32,20 +32,23 @@ mysqli_close($link);
 
 
     <style>
-
-
+        .centerLink {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     </style>
 </head>
 
 <body>
 
-    <div style="text-align: center;"><a href="../index.html"><img src="immagini/logo_unife.png" height="100px" width="200px"></a></div>
+    <div style="text-align: center;"><a href="../index.html"><img src="../immagini/logo_unife.png" height="100px" width="200px"></a></div>
     <h1 style="text-align: center;">Gestione Biblioteca UNIFE - Numero di prestiti effettuati dal dipartimento</h1>
 
     <hr><br>
 
     <fieldset>
-        <h2 style="margin-left:48%; color:red"> <?php echo $Html ?> </h2>
+        <h2 style="text-align: center;"> <?php echo $Html ?> </h2>
     </fieldset>
 
     <br>

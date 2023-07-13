@@ -1,4 +1,5 @@
 <?php
+
 $nome = $_POST["nome"];
 $cognome = $_POST["cognome"];
 $matricola = $_POST["matricola"];
@@ -16,6 +17,8 @@ if (empty($matricola)) {
 }
 
 $result = mysqli_query($link, $sql);
+
+$Html = "";
 
 $TotTupleT = 0;
 while ($row = mysqli_fetch_array($result)) {
@@ -42,7 +45,6 @@ mysqli_close($link);
         td,
         th {
             text-align: center;
-            width: 100%;
             vertical-align: middle;
         }
 
@@ -95,9 +97,7 @@ mysqli_close($link);
 
     </table>
 
-    <div style="text-align:center">
-        <?php echo $htmlPage; ?>
-    </div>
+    <br>
 
     <div class="centerLink"><a href="../index.html" style="text-align:center;">Torna alla homepage</a></div>
 

@@ -83,6 +83,7 @@ $countS = 0;
 $countG = 0;
 
 $htmlPage = "";
+$Html = "";
 
 for ($i = 0; $i < $Npage; $i++) {
     $p = $i + 1;
@@ -145,7 +146,6 @@ mysqli_close($link);
         td,
         th {
             text-align: center;
-            width: 100%;
             vertical-align: middle;
         }
 

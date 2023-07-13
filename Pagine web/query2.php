@@ -2,7 +2,7 @@
 
 include_once('php/connessione.php');
 $index = $_GET["index"];
-$TuplePerPagina = 50;
+$TuplePerPagina = 100;
 
 if (empty($index)) {
     $index = 0;
@@ -36,10 +36,11 @@ $countS = 0;
 $countG = 0;
 
 $htmlPage = "";
+$Html = "";
 
 for ($i = 0; $i < $Npage; $i++) {
     $p = $i + 1;
-    $htmlPage = $htmlPage . "<a type='page' href='Q2.php?index=$i'>$p</a>";
+    $htmlPage = $htmlPage . "<a type='page' href='query2.php?index=$i'>$p</a>";
 }
 
 while ($row = mysqli_fetch_array($result)) {
@@ -49,7 +50,7 @@ while ($row = mysqli_fetch_array($result)) {
         $countS++;
         if ($countS <= $TuplePerPagina) {
             $Html = $Html . "<tr><td>$row[1]</td> <td>$row[2]</td><td>$row[3]</td><td>$row[4]</td><td>
-                <form action='php/getLibriA.php' method='POST'>
+                <form action='php/getLibriBibliografia.php' method='POST'>
                 <input type='hidden' value='$row[0]' name='codice'><input style=' width: 100%;' type='submit' value='Vedi libri'>
                 </form></td></tr>";
         }
@@ -72,7 +73,6 @@ mysqli_close($link);
         td,
         th {
             text-align: center;
-            width: 100%;
             vertical-align: middle;
         }
 
@@ -95,10 +95,6 @@ mysqli_close($link);
         Visualizzazione di tutti i libri di un determinato autore,
         eventualmente suddivisi per anno di pubblicazione
     </p>
-    <h4 style="text-align:center">Pagina
-        <?php echo $index + 1; ?> di
-        <?php echo $Npage; ?>
-    </h4>
 
     <h3>Totale risultati trovati:
         <?php echo $TotTupleT; ?>
@@ -114,10 +110,6 @@ mysqli_close($link);
         <?php echo $Html ?>
 
     </table>
-
-    <div style="text-align:center">
-        <?php echo $htmlPage; ?>
-    </div>
 
     <div class="centerLink"><a href="../index.html" style="text-align:center;">Torna alla homepage</a></div>
 

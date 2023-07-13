@@ -64,6 +64,8 @@ mysqli_close($link);
 		</fieldset>
 	</form>
 
+	<br>
+
 	<table style="width:100%">
 		<tr>
 			<th>Titolo</th>
@@ -73,6 +75,8 @@ mysqli_close($link);
 		</tr>
 		<?php echo $Html ?>
 	</table>
+
+	<br>
 
 	<div class="centerLink"><a href="../index.html" style="text-align:center;">Torna alla homepage</a></div>
 

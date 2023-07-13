@@ -36,6 +36,7 @@ $countS = 0;
 $countG = 0;
 
 $htmlPage = "";
+$Html = "";
 
 for ($i = 0; $i < $Npage; $i++) {
     $p = $i + 1;
@@ -69,7 +70,6 @@ mysqli_close($link);
         td,
         th {
             text-align: center;
-            width: 100%;
             vertical-align: middle;
         }
 
@@ -107,6 +107,8 @@ mysqli_close($link);
     <div style="text-align:center">
         <?php echo $htmlPage; ?>
     </div>
+
+    <br>
 
     <div class="centerLink"><a href="../index.html" style="text-align:center;">Torna alla homepage</a></div>
 
