@@ -19,11 +19,11 @@ CREATE TABLE Utente (
 
 CREATE TABLE Dipartimento (
 	Cod_dip     INT NOT NULL AUTO_INCREMENT,
-	Nome        VARCHAR(30),
-	Via 	    VARCHAR(20),
+	Nome        VARCHAR(50),
+	Via 	    VARCHAR(30),
 	N_civico 	VARCHAR(4),
 	Cap         CHAR(6),
-	Città       VARCHAR(20),
+	Città       VARCHAR(30),
 
 	PRIMARY KEY (Cod_dip),
 	UNIQUE (Nome)
@@ -45,8 +45,8 @@ CREATE TABLE Libro(
 
 CREATE TABLE Autore(
 	Cod_autore  INT NOT NULL AUTO_INCREMENT,
-	Nome 	    VARCHAR(20),
-	Cognome 	VARCHAR(20),
+	Nome 	    VARCHAR(30),
+	Cognome 	VARCHAR(30),
 	Data_nascita DATE,
 	Luogo_nascita VARCHAR(30),
 
