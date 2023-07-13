@@ -10,6 +10,8 @@ $sql = "SELECT COUNT(Libro.Cod_libro)
 
 $result = mysqli_query($link, $sql);
 
+$Html =  "";
+
 while ($row = mysqli_fetch_array($result)) {
     $Html =  $Html . "$row[0]";
 }

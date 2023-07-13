@@ -1,14 +1,7 @@
 <?php
 
 include_once('php/connessione.php');
-$index = $_GET["index"];
 $TuplePerPagina = 100;
-
-if (empty($index)) {
-    $index = 0;
-}
-
-$IndexToGo = $index * $TuplePerPagina;
 
 $sql = "SELECT Autore.Cod_autore, Autore.Nome, Autore.Cognome, Autore.Data_nascita, Autore.Luogo_nascita 
     FROM BibliotecaUNIFE.Autore";
@@ -35,27 +28,15 @@ $result = mysqli_query($link, $sql);
 $countS = 0;
 $countG = 0;
 
-$htmlPage = "";
 $Html = "";
 
-for ($i = 0; $i < $Npage; $i++) {
-    $p = $i + 1;
-    $htmlPage = $htmlPage . "<a type='page' href='query2.php?index=$i'>$p</a>";
-}
-
 while ($row = mysqli_fetch_array($result)) {
-    $countG++;
-
-    if ($countG > $IndexToGo) {
-        $countS++;
-        if ($countS <= $TuplePerPagina) {
-            $Html = $Html . "<tr><td>$row[1]</td> <td>$row[2]</td><td>$row[3]</td><td>$row[4]</td><td>
-                <form action='php/getLibriBibliografia.php' method='POST'>
-                <input type='hidden' value='$row[0]' name='codice'><input style=' width: 100%;' type='submit' value='Vedi libri'>
-                </form></td></tr>";
-        }
-    }
+    $Html = $Html . "<tr><td>$row[1]</td> <td>$row[2]</td><td>$row[3]</td><td>$row[4]</td><td>
+    <form action='php/getLibriBibliografia.php' method='POST'>
+    <input type='hidden' value='$row[0]' name='codice'><input style=' width: 100%;' type='submit' value='Vedi libri'>
+    </form></td></tr>";
 }
+
 
 mysqli_close($link);
 ?>
@@ -89,17 +70,14 @@ mysqli_close($link);
     <div style="text-align: center;"><a href="../index.html"><img src="../immagini/logo_unife.png" height="100px" width="200px"></a></div>
     <h1 style="text-align: center;">Gestione Biblioteca UNIFE - Bibliografia autore</h1>
 
-    <hr><br>
+    <hr>
 
     <p style="text-align: center">
         Visualizzazione di tutti i libri di un determinato autore,
         eventualmente suddivisi per anno di pubblicazione
     </p>
 
-    <h3>Totale risultati trovati:
-        <?php echo $TotTupleT; ?>
-    </h3>
-    <table>
+    <table style="width: 100%;">
         <tr>
             <th>Nome</th>
             <th>Cognome</th>
@@ -110,6 +88,8 @@ mysqli_close($link);
         <?php echo $Html ?>
 
     </table>
+
+    <br>
 
     <div class="centerLink"><a href="../index.html" style="text-align:center;">Torna alla homepage</a></div>
 
