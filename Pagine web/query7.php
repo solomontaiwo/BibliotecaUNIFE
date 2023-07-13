@@ -212,6 +212,8 @@ mysqli_close($link);
         <?php echo $htmlPage; ?>
     </div>
 
+    <br>
+
     <div class="centerLink"><a href="../index.html" style="text-align:center;">Torna alla homepage</a></div>
 
     <br>
