@@ -2,7 +2,6 @@
 
 include_once('php/connessione.php');
 
-//query
 $sql = "SELECT Autore.Cod_autore, Autore.Nome, Autore.Cognome , Autore.Data_nascita, Autore.Luogo_nascita, COUNT(Libro.Cod_libro)  AS N_libri
             FROM Scrivere, Libro, Autore
             WHERE Scrivere.Cod_autore = Autore.Cod_autore AND
@@ -12,6 +11,7 @@ $sql = "SELECT Autore.Cod_autore, Autore.Nome, Autore.Cognome , Autore.Data_nasc
 
 $result = mysqli_query($link, $sql);
 
+$Html = "";
 
 while ($row = mysqli_fetch_array($result)) {
     $Html =  $Html . "<tr><td>$row[1]</td> <td>$row[2]</td><td>$row[3]</td><td>$row[4]</td><td>$row[5]</td></tr>";
@@ -33,7 +33,6 @@ mysqli_close($link);
         td,
         th {
             text-align: center;
-            width: 100%;
             vertical-align: middle;
         }
 

@@ -7,9 +7,11 @@ $sql = "SELECT *
 
 $result = mysqli_query($link, $sql);
 
+$Html = "";
+
 while ($row = mysqli_fetch_array($result)) {
     $Html =  $Html . "<tr><td>$row[1]</td> <td>$row[2], N.$row[3], $row[5]</td> <td>$row[4]</td><td>
-		<form action='php/query8b.php' method='POST'>
+		<form action='php/query8b_conta.php' method='POST'>
 		<input type='hidden' value='$row[0]' name='codice'><input type='submit' style='width: 100%;' value='Conta'>
 		</form></td></tr>";
 }
@@ -30,7 +32,6 @@ mysqli_close($link);
         td,
         th {
             text-align: center;
-            width: 100%;
             vertical-align: middle;
         }
 
