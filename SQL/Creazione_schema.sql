@@ -32,7 +32,7 @@ CREATE TABLE Dipartimento (
 
 CREATE TABLE Libro(
 	Cod_libro   INT NOT NULL AUTO_INCREMENT,
-    Titolo		VARCHAR(50),
+    Titolo		VARCHAR(90),
 	ISBN		VARCHAR(20),
     Lingua		VARCHAR(20),
 	Anno_pub	YEAR,
