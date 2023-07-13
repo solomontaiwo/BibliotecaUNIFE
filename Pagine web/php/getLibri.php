@@ -35,7 +35,6 @@ mysqli_close($link);
 		td,
 		th {
 			text-align: center;
-			width: 100%;
 			vertical-align: middle;
 		}
 
