@@ -51,7 +51,7 @@ mysqli_close($link);
   <h1 style="text-align: center;">Gestione Biblioteca UNIFE - Ricerca autore</h1>
 
   <hr><br>
-  <form action="libriAutore.php" method="POST">
+  <form action="getAutore.php" method="POST">
     <fieldset>
       <p style="text-align: center">Ricerca degli autori inserendo uno o più parametri (anche parziali)</p>
       <input style="width: 100%; " type="text" name="nome" placeholder="Scrivi qui il nome dell'autore">

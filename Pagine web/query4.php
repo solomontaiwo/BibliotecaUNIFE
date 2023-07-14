@@ -80,7 +80,10 @@ mysqli_close($link);
     <hr>
 
     <footer style="text-align: center;">
-        <p>Basi di dati 2021/22 - Progetto di Gaia Marzola e Solomon Olamide Taiwo (Gruppo n. 6)</p>
+        <p>Basi di dati 2021/22 - Progetto di <a href="mailto:gaia.marzola@edu.unife.it?subject=Progetto basi di dati 2021/22">Gaia Marzola</a>
+            e <a href="mailto:solomonolamide.taiwo@edu.unife.it?subject=Progetto basi di dati 2021/22">Solomon Olamide
+                Taiwo</a>
+            (Gruppo n. 6)</p>
     </footer>
 
 </body>
