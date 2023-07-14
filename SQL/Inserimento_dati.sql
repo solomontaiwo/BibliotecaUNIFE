@@ -1,3 +1,4 @@
+/* Modificare "/Applications/.../.csv" inserendo percorso assoluto corretto */
 LOAD DATA LOCAL INFILE '/Applications/MAMP/htdocs/SQL/Database/Author.csv'
 INTO TABLE BibliotecaUNIFE.Autore
 FIELDS TERMINATED BY ','

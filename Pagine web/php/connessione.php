@@ -1,4 +1,5 @@
 <?php
+// Modificare inserendo credenziali Mysql appropriate
 $link = mysqli_connect("127.0.0.1", "solomon", "solomon123", "BibliotecaUNIFE");
 
 if (!$link) {
