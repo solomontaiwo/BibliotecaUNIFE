@@ -1,8 +1,6 @@
-/*
-CREATE USER 'solomon'@localhost' IDENTIFIED BY 'solomon123';
-GRANT ALL PRIVILEGES ON *.* TO 'solomon'@localhost' WITH GRANT OPTION;
+CREATE USER IF NOT EXISTS 'solomon'@'localhost' IDENTIFIED BY 'solomon123';
+GRANT ALL PRIVILEGES ON *.* TO 'solomon'@'localhost' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
-*/
 
 /* 
 Eliminazione tabelle se pre-esistenti
