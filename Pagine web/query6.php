@@ -97,7 +97,7 @@ mysqli_close($link);
 
 <body>
 
-	<div style="text-align: center;"><a href="../index.html"><img src="immagini/logo_unife.png" height="100px" width="200px"></a></div>
+	<div style="text-align: center;"><a href="index.html"><img src="immagini/logo_unife.png" height="100px" width="200px"></a></div>
 	<h1 style="text-align: center;">Gestione Biblioteca UNIFE - Storico prestiti con informazioni utente</h1>
 
 	<hr><br>
@@ -136,7 +136,7 @@ mysqli_close($link);
 
 	<br>
 
-	<div class="centerLink"><a href="../index.html" style="text-align:center;">Torna alla homepage</a></div>
+	<div class="centerLink"><a href="index.html" style="text-align:center;">Torna alla homepage</a></div>
 
 	<br>
 	<hr>

@@ -58,7 +58,7 @@ mysqli_close($link);
 
 <body>
 
-    <div style="text-align: center;"><a href="../index.html"><img src="../immagini/logo_unife.png" height="100px" width="200px"></a></div>
+    <div style="text-align: center;"><a href="index.html"><img src="immagini/logo_unife.png" height="100px" width="200px"></a></div>
     <h1 style="text-align: center;">Gestione Biblioteca UNIFE - Ricerca utente e storico</h1>
 
     <hr><br>
@@ -99,7 +99,7 @@ mysqli_close($link);
 
     <br>
 
-    <div class="centerLink"><a href="../index.html" style="text-align:center;">Torna alla homepage</a></div>
+    <div class="centerLink"><a href="index.html" style="text-align:center;">Torna alla homepage</a></div>
 
     <br>
     <hr>
