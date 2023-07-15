@@ -1,5 +1,22 @@
-CREATE SCHEMA IF NOT EXISTS BibliotecaUNIFE;
+/*
+CREATE USER 'solomon'@localhost' IDENTIFIED BY 'solomon123';
+GRANT ALL PRIVILEGES ON *.* TO 'solomon'@localhost' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+*/
 
+/* 
+Eliminazione tabelle se pre-esistenti
+DROP TABLE IF EXISTS Utente
+DROP TABLE IF EXISTS Dipartimento
+DROP TABLE IF EXISTS Libro
+DROP TABLE IF EXISTS Autore
+DROP TABLE IF EXISTS Custodire
+DROP TABLE IF EXISTS Prestito
+DROP TABLE IF EXISTS Scrivere
+*/
+
+DROP DATABASE IF EXISTS BibliotecaUNIFE;
+CREATE DATABASE IF NOT EXISTS BibliotecaUNIFE;
 USE BibliotecaUNIFE;
 
 CREATE TABLE Utente (
@@ -89,3 +106,5 @@ CREATE TABLE Scrivere(
     ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY (Cod_autore) REFERENCES Autore(Cod_autore)
 );
+
+SET GLOBAL local_infile = 'ON';
