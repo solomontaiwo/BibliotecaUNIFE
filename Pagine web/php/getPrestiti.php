@@ -10,7 +10,7 @@ $sql = "SELECT Libro.Titolo, Libro.ISBN, Libro.Lingua, Libro.AnnoPubb, Prestito.
 	ORDER BY Prestito.DataUscita DESC;";
 
 $result = mysqli_query($link, $sql);
-
+$Html = "";
 
 while ($row = mysqli_fetch_array($result)) {
     $state = "Non restituito";
