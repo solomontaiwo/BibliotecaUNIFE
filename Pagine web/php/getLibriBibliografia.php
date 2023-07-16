@@ -71,6 +71,7 @@ mysqli_close($link);
         </p>
     </fieldset>
 
+    <br>
 
     <table style="width:100%">
         <tr>
