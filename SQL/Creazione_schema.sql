@@ -1,5 +1,5 @@
-CREATE USER IF NOT EXISTS 'solomon' @'localhost' IDENTIFIED BY 'solomon123';
-GRANT ALL PRIVILEGES ON *.* TO 'solomon' @'localhost'
+CREATE USER IF NOT EXISTS 'userBibliotecaUNIFE' @'localhost' IDENTIFIED BY 'user123';
+GRANT ALL PRIVILEGES ON *.* TO 'userBibliotecaUNIFE' @'localhost'
 WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 
