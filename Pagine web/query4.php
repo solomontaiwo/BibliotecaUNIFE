@@ -19,7 +19,7 @@ $Html = "";
 
 while ($row = mysqli_fetch_array($result)) {
 
-    $Html = $Html . "<tr><td>$row[0]</td> <td>$row[1]</td> <td>$row[2]</td><td>$row[3]</td><td>$row[4], N.$row[5], $row[7], $row[6]</td></tr>";
+    $Html = $Html . "<tr><td>$row[0]</td> <td>$row[1]</td> <td>$row[2]</td> <td>$row[3]</td> <td>$row[4]</td> <td>$row[5]</td> <td>$row[6]</td> <td>$row[7]</td></tr>";
 }
 
 
@@ -63,8 +63,11 @@ mysqli_close($link);
             <th>Matricola</th>
             <th>Nome</th>
             <th>Cognome</th>
+            <th>Via</th>
+            <th>N. Civico</th>
+            <th>Cap</th>
+            <th>Città</th>
             <th>Numero di telefono</th>
-            <th>Indirizzo</th>
         </tr>
         <?php echo $Html ?>
 
