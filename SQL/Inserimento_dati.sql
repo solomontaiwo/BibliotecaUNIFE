@@ -37,7 +37,7 @@ LOAD DATA
 
 LOAD DATA
     LOCAL 
-    INFILE '/Applications/MAMP/htdocs/SQL/Database/Utenti.csv' 
+    INFILE '/Applications/MAMP/htdocs/SQL/Database/Utente.csv' 
     INTO TABLE BibliotecaUNIFE.Utente 
     FIELDS 
         TERMINATED BY ',' 
