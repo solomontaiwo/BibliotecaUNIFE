@@ -82,10 +82,10 @@ CREATE TABLE Custodire(
 
 CREATE TABLE Prestito(
     CodPrestito     INT NOT NULL AUTO_INCREMENT,
+    Restituzione    BOOLEAN,
+    DataUscita      DATE,
     CodLibro        INT,
     NMatricola      INT,
-    DataUscita      DATE,
-    Restituzione    BOOLEAN,
     PRIMARY KEY (CodPrestito),
     FOREIGN KEY (CodLibro) 
     REFERENCES Libro(CodLibro) 
