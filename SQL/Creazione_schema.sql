@@ -22,7 +22,7 @@ CREATE TABLE Utente (
     NMatricola  INT NOT NULL,
     Nome        VARCHAR(20),
     Cognome     VARCHAR(20),
-    Via         VARCHAR(20),
+    Via         VARCHAR(40),
     NCivico     VARCHAR(4),
     Cap         CHAR(6),
     Città       VARCHAR(20),
