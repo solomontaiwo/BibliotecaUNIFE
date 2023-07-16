@@ -34,3 +34,21 @@ LOAD DATA
         TERMINATED BY ',' 
     LINES 
         TERMINATED BY '\n';
+
+LOAD DATA
+    LOCAL 
+    INFILE '/Applications/MAMP/htdocs/SQL/Database/Utenti.csv' 
+    INTO TABLE BibliotecaUNIFE.Utente 
+    FIELDS 
+        TERMINATED BY ',' 
+    LINES 
+        TERMINATED BY '\n';
+
+LOAD DATA
+    LOCAL 
+    INFILE '/Applications/MAMP/htdocs/SQL/Database/Prestito.csv' 
+    INTO TABLE BibliotecaUNIFE.Prestito 
+    FIELDS 
+        TERMINATED BY ',' 
+    LINES 
+        TERMINATED BY '\n';
