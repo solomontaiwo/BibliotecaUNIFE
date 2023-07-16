@@ -10,17 +10,23 @@ $sql = "SELECT Libro.Cod_libro, Libro.Titolo, Libro.ISBN, Libro.Lingua, Libro.An
 	ORDER BY Anno_pub;
 	";
 
-$autore = "SELECT Autore.Nome, Autore.Cognome
-    FROM BibliotecaUNIFE.Autore
-    WHERE Autore.Cod_autore = '$codice'
+$sql1 = "SELECT CONCAT(Autore.Nome,' ',Autore.Cognome) AS Nome_cognome
+    FROM Autore
+	WHERE Autore.Cod_autore = '$codice'
     ";
 
 $result = mysqli_query($link, $sql);
+$result1 = mysqli_query($link, $sql1);
 
 $Html = "";
+$autore = "";
 
 while ($row = mysqli_fetch_array($result)) {
     $Html =  $Html . "<tr> <td>$row[1]</td> <td>$row[2]</td><td>$row[3]</td><td>$row[4]</td></tr>";
+}
+
+while ($row = mysqli_fetch_array($result1)) {
+    $autore =  $row["Nome_cognome"];
 }
 
 mysqli_close($link);
