@@ -65,21 +65,6 @@ CREATE TABLE Autore(
     PRIMARY KEY (CodAutore)
 );
 
-CREATE TABLE Custodire(
-    CodCustodire    INT NOT NULL AUTO_INCREMENT,
-    CodLibro        INT,
-    CodDip          INT,
-    PRIMARY KEY (CodCustodire),
-    FOREIGN KEY (CodLibro) 
-        REFERENCES Libro(CodLibro) 
-        ON DELETE CASCADE 
-        ON UPDATE CASCADE,
-    FOREIGN KEY (CodDip) 
-        REFERENCES Dipartimento(CodDip) 
-        ON DELETE CASCADE 
-        ON UPDATE CASCADE
-);
-
 CREATE TABLE Prestito(
     CodPrestito     INT NOT NULL AUTO_INCREMENT,
     Restituzione    BOOLEAN,
