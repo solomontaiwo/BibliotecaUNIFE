@@ -6,9 +6,9 @@ $luogo = $_POST["luogo"];
 
 include_once('connessione.php');
 
-$sql = "SELECT Autore.Cod_autore, Autore.Nome, Autore.Cognome, Autore.Data_nascita, Autore.Luogo_nascita
+$sql = "SELECT Autore.CodAutore, Autore.Nome, Autore.Cognome, Autore.DataNascita, Autore.LuogoNascita
 	FROM BibliotecaUNIFE.Autore 
-	WHERE Autore.Nome LIKE '%" . $nome . "%' AND Autore.Cognome LIKE '%" . $cognome . "%' AND Autore.Data_nascita LIKE '%" . $data . "%' AND Autore.Luogo_nascita LIKE '%" . $luogo . "%'";
+	WHERE Autore.Nome LIKE '%" . $nome . "%' AND Autore.Cognome LIKE '%" . $cognome . "%' AND Autore.DataNascita LIKE '%" . $data . "%' AND Autore.LuogoNascita LIKE '%" . $luogo . "%'";
 
 $result = mysqli_query($link, $sql);
 

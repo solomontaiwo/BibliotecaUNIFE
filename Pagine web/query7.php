@@ -31,13 +31,13 @@ $IndexToGo = $index * $TuplePerPagina;
 
 
 if (empty($Data1) && empty($Data2)) {
-    $sql = "SELECT Utente.N_matricola, Utente.Nome, Utente.Cognome, Utente.N_telefono, Utente.Via, Utente.N_civico, Utente.Cap, Utente.Città, Libro.Titolo, Libro.ISBN, Prestito.Data_uscita, Prestito.Restituzione, Dipartimento.Nome, Dipartimento.Via, Dipartimento.N_civico, Dipartimento.Cap, Dipartimento.Città
+    $sql = "SELECT Utente.NMatricola, Utente.Nome, Utente.Cognome, Utente.NTelefono, Utente.Via, Utente.NCivico, Utente.Cap, Utente.Città, Libro.Titolo, Libro.ISBN, Prestito.DataUscita, Prestito.Restituzione, Dipartimento.Nome, Dipartimento.Via, Dipartimento.NCivico, Dipartimento.Cap, Dipartimento.Città
 FROM Utente, Prestito, Libro, Dipartimento
-WHERE Utente.N_matricola = Prestito.N_matricola AND
-Libro.Cod_libro = Prestito.Cod_libro AND
-Libro.Cod_dip = Dipartimento.Cod_dip AND Prestito.Restituzione = 0
-AND Prestito.Data_uscita > date_sub(current_date(), INTERVAL '$giorni' DAY)
-ORDER BY Prestito.Data_uscita;";
+WHERE Utente.NMatricola = Prestito.NMatricola AND
+Libro.CodLibro = Prestito.CodLibro AND
+Libro.CodDip = Dipartimento.CodDip AND Prestito.Restituzione = 0
+AND Prestito.DataUscita > date_sub(current_date(), INTERVAL '$giorni' DAY)
+ORDER BY Prestito.DataUscita;";
     $flagResult = 0;
 } else {
 
@@ -53,11 +53,11 @@ ORDER BY Prestito.Data_uscita;";
         exit();
     }
 
-    $sql = "SELECT Utente.N_matricola, Utente.Nome, Utente.Cognome, Utente.N_telefono, Utente.Via, Utente.N_civico, Utente.Cap, Utente.Città, Libro.Titolo, Libro.ISBN, Prestito.Data_uscita, Prestito.Restituzione, Dipartimento.Nome, Dipartimento.Via, Dipartimento.N_civico, Dipartimento.Cap, Dipartimento.Città
+    $sql = "SELECT Utente.NMatricola, Utente.Nome, Utente.Cognome, Utente.NTelefono, Utente.Via, Utente.NCivico, Utente.Cap, Utente.Città, Libro.Titolo, Libro.ISBN, Prestito.DataUscita, Prestito.Restituzione, Dipartimento.Nome, Dipartimento.Via, Dipartimento.NCivico, Dipartimento.Cap, Dipartimento.Città
 FROM Utente, Prestito, Libro, Dipartimento
-WHERE Utente.N_matricola = Prestito.N_matricola AND Libro.Cod_libro = Prestito.Cod_libro AND Libro.Cod_dip = Dipartimento.Cod_dip
-AND Prestito.Data_uscita BETWEEN '$Data1' AND '$Data2'
-ORDER BY Prestito.Data_uscita;";
+WHERE Utente.NMatricola = Prestito.NMatricola AND Libro.CodLibro = Prestito.CodLibro AND Libro.CodDip = Dipartimento.CodDip
+AND Prestito.DataUscita BETWEEN '$Data1' AND '$Data2'
+ORDER BY Prestito.DataUscita;";
     $flagResult = 1;
 }
 

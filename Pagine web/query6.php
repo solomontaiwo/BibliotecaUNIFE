@@ -12,13 +12,13 @@ if (empty($index)) {
 
 $IndexToGo = $index * $TuplePerPagina;
 
-$sql = "SELECT Utente.N_matricola, Utente.Nome, Utente.Cognome, Libro.Titolo, Libro.ISBN,
-	Prestito.Data_uscita, Prestito.Restituzione, Dipartimento.Nome, Dipartimento.Via, Dipartimento.N_civico, 
+$sql = "SELECT Utente.NMatricola, Utente.Nome, Utente.Cognome, Libro.Titolo, Libro.ISBN,
+	Prestito.DataUscita, Prestito.Restituzione, Dipartimento.Nome, Dipartimento.Via, Dipartimento.NCivico, 
 	Dipartimento.Cap, Dipartimento.Città
 	FROM Utente, Prestito, Libro, Dipartimento
-	WHERE Utente.N_matricola = Prestito.N_matricola AND Libro.Cod_libro = Prestito.Cod_libro AND 
-	Libro.Cod_dip = Dipartimento.Cod_dip
-	ORDER BY Prestito.Data_uscita DESC;";
+	WHERE Utente.NMatricola = Prestito.NMatricola AND Libro.CodLibro = Prestito.CodLibro AND 
+	Libro.CodDip = Dipartimento.CodDip
+	ORDER BY Prestito.DataUscita DESC;";
 
 
 $result = mysqli_query($link, $sql);

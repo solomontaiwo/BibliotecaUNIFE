@@ -3,11 +3,11 @@ $codice = $_POST["codice"];
 
 include_once('connessione.php');
 
-$sql = "SELECT COUNT(Prestito.Cod_prestito) AS N_prestiti
+$sql = "SELECT COUNT(Prestito.CodPrestito) AS NPrestiti
             FROM Prestito, Libro, Dipartimento
-            WHERE Dipartimento.Cod_dip = " . $codice . " AND 
-            Prestito.Cod_libro = Libro.Cod_libro AND 
-            Libro.Cod_dip = Dipartimento.Cod_dip  
+            WHERE Dipartimento.CodDip = " . $codice . " AND 
+            Prestito.CodLibro = Libro.CodLibro AND 
+            Libro.CodDip = Dipartimento.CodDip  
 	    ";
 
 $result = mysqli_query($link, $sql);

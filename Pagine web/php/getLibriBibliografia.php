@@ -4,15 +4,15 @@ $codice = $_POST["codice"];
 include_once('connessione.php');
 
 
-$sql = "SELECT Libro.Cod_libro, Libro.Titolo, Libro.ISBN, Libro.Lingua, Libro.Anno_pub, Libro.Cod_dip
+$sql = "SELECT Libro.CodLibro, Libro.Titolo, Libro.ISBN, Libro.Lingua, Libro.AnnoPubb, Libro.CodDip
 	FROM Libro, Autore, Scrivere
-	WHERE Autore.Cod_autore = '$codice' AND Autore.Cod_autore = Scrivere.Cod_autore AND Scrivere.Cod_libro = Libro.Cod_libro
-	ORDER BY Anno_pub;
+	WHERE Autore.CodAutore = '$codice' AND Autore.CodAutore = Scrivere.CodAutore AND Scrivere.CodLibro = Libro.CodLibro
+	ORDER BY AnnoPubb;
 	";
 
 $sql1 = "SELECT CONCAT(Autore.Nome,' ',Autore.Cognome) AS Nome_cognome
     FROM Autore
-	WHERE Autore.Cod_autore = '$codice'
+	WHERE Autore.CodAutore = '$codice'
     ";
 
 $result = mysqli_query($link, $sql);

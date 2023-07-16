@@ -13,7 +13,7 @@ if (empty($matricola)) {
 } else {
     $sql = "SELECT *
 		FROM BibliotecaUNIFE.Utente
-		WHERE Utente.N_atricola = '$matricola' AND Utente.Nome LIKE '%" . $nome . "%' AND Utente.Cognome LIKE '%" . $cognome . "%'";
+		WHERE Utente.NMatricola = '$matricola' AND Utente.Nome LIKE '%" . $nome . "%' AND Utente.Cognome LIKE '%" . $cognome . "%'";
 }
 
 $result = mysqli_query($link, $sql);

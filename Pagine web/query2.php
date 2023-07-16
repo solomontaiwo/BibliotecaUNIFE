@@ -3,7 +3,7 @@
 include_once('php/connessione.php');
 $TuplePerPagina = 100;
 
-$sql = "SELECT Autore.Cod_autore, Autore.Nome, Autore.Cognome, Autore.Data_nascita, Autore.Luogo_nascita 
+$sql = "SELECT Autore.CodAutore, Autore.Nome, Autore.Cognome, Autore.DataNascita, Autore.LuogoNascita 
     FROM BibliotecaUNIFE.Autore";
 
 $result = mysqli_query($link, $sql);

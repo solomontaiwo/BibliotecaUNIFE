@@ -3,11 +3,11 @@ $matricola = $_POST["matricola"];
 
 include_once('connessione.php');
 
-$sql = "SELECT Libro.Titolo, Libro.ISBN, Libro.Lingua, Libro.Anno_pub, Prestito.Data_uscita, Prestito.Restituzione, Dipartimento.Nome, Dipartimento.Via, Dipartimento.N_civico, Dipartimento.Cap, Dipartimento.Città
+$sql = "SELECT Libro.Titolo, Libro.ISBN, Libro.Lingua, Libro.AnnoPubb, Prestito.DataUscita, Prestito.Restituzione, Dipartimento.Nome, Dipartimento.Via, Dipartimento.NCivico, Dipartimento.Cap, Dipartimento.Città
 	FROM Utente, Prestito, Libro, Dipartimento
-	WHERE Utente.N_matricola = '$matricola' AND Utente.N_matricola = Prestito.N_matricola AND
-	Libro.Cod_libro = Prestito.Cod_libro AND Libro.Cod_dip = Dipartimento.Cod_dip
-	ORDER BY Prestito.Data_uscita DESC;";
+	WHERE Utente.NMatricola = '$matricola' AND Utente.NMatricola = Prestito.NMatricola AND
+	Libro.CodLibro = Prestito.CodLibro AND Libro.CodDip = Dipartimento.CodDip
+	ORDER BY Prestito.DataUscita DESC;";
 
 $result = mysqli_query($link, $sql);
 
