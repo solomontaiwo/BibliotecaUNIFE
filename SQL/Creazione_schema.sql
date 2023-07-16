@@ -20,13 +20,13 @@ USE BibliotecaUNIFE;
 
 CREATE TABLE Utente (
     NMatricola  INT NOT NULL,
-    Cognome     VARCHAR(20),
     Nome        VARCHAR(20),
-    NTelefono   VARCHAR(11),
+    Cognome     VARCHAR(20),
     Via         VARCHAR(20),
     NCivico     VARCHAR(4),
     Cap         CHAR(6),
     Città       VARCHAR(20),
+    NTelefono   VARCHAR(11),
     PRIMARY KEY (NMatricola),
     UNIQUE (NTelefono)
 );
