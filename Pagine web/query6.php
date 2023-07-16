@@ -26,6 +26,8 @@ while ($row = mysqli_fetch_array($result)) {
 
 	if ($row[6] == 0) {
 		$state = "Non restituito";
+	}
+
 	if ($row[6] == 1) {
 		$state = "Restituito";
 	}
@@ -33,7 +35,6 @@ while ($row = mysqli_fetch_array($result)) {
 	$Html = $Html . "<tr><td>$row[0]</td> <td>$row[1]</td> <td>$row[2]</td><td>$row[3]</td>
 		<td>$row[4]</td><td>$row[5]</td><td>$state</td>
 		<td>$row[7]</td><td>$row[8], N.$row[9], $row[11], $row[10]</td></tr>";
-	}
 }
 
 mysqli_close($link);
