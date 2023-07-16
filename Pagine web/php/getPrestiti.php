@@ -72,9 +72,13 @@ mysqli_close($link);
             <th>Indirizzo del dipartimento</th>
         </tr>
 
+        <br>
+
         <?php echo $Html ?>
 
     </table>
+
+    <br>
 
     <div class="centerLink"><a href="../index.html" style="text-align:center;">Torna alla homepage</a></div>
 

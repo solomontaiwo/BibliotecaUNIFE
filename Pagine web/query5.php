@@ -23,7 +23,7 @@ $Html = "";
 $TotTupleT = 0;
 while ($row = mysqli_fetch_array($result)) {
     $TotTupleT++;
-    $Html = $Html . "<tr><td>$row[0]</td> <td>$row[1]</td> <td>$row[2]</td><td>$row[3]</td><td>$row[4], N.$row[5], $row[7], $row[6]</td><td>$row[8]</td><td>$row[9]</td><td>
+    $Html = $Html . "<tr><td>$row[0]</td> <td>$row[1]</td> <td>$row[2]</td><td>$row[3]</td><td>$row[4], N.$row[5], $row[7], $row[6]</td></td><td>
 		<form action='php/getPrestiti.php' method='POST'>
 		<input type='hidden' value='$row[0]' name='matricola'><input type='submit' style=' width: 100%;' value='Prestiti'>
 		</form></td></tr>";
@@ -89,8 +89,6 @@ mysqli_close($link);
             <th>Cognome</th>
             <th>Numero di telefono</th>
             <th>Indirizzo</th>
-            <th>Sesso</th>
-            <th>Data di nascita</th>
             <th>Storico prestiti</th>
         </tr>
         <?php echo $Html ?>
