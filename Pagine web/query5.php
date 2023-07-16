@@ -1,5 +1,9 @@
 <?php
 
+$nome = "";
+$cognome = "";
+$matricola = "";
+
 $nome = $_POST["nome"];
 $cognome = $_POST["cognome"];
 $matricola = $_POST["matricola"];
@@ -23,8 +27,8 @@ $Html = "";
 $TotTupleT = 0;
 while ($row = mysqli_fetch_array($result)) {
     $TotTupleT++;
-    $Html = $Html . "<tr><td>$row[0]</td> <td>$row[1]</td> <td>$row[2]</td><td>$row[3]</td><td>$row[4], N.$row[5], $row[7], $row[6]</td></td><td>
-		<form action='php/getPrestiti.php' method='POST'>
+    $Html = $Html . "<tr><td>$row[0]</td> <td>$row[1]</td> <td>$row[2]</td> <td>$row[3]</td> <td>$row[4]</td> <td>$row[5]</td> <td>$row[6]</td> <td>$row[7]</td> 
+        <td><form action='php/getPrestiti.php' method='POST'>
 		<input type='hidden' value='$row[0]' name='matricola'><input type='submit' style=' width: 100%;' value='Prestiti'>
 		</form></td></tr>";
 }
@@ -87,8 +91,11 @@ mysqli_close($link);
             <th>Matricola</th>
             <th>Nome</th>
             <th>Cognome</th>
+            <th>Via</th>
+            <th>N. Civico</th>
+            <th>Cap</th>
+            <th>Città</th>
             <th>Numero di telefono</th>
-            <th>Indirizzo</th>
             <th>Storico prestiti</th>
         </tr>
         <?php echo $Html ?>

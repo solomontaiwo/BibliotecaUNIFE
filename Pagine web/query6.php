@@ -1,16 +1,6 @@
 <?php
 
 include_once('php/connessione.php');
-$index = 0;
-$index = $_GET["index"];
-$TuplePerPagina = 150;
-
-
-if (empty($index)) {
-	$index = 0;
-}
-
-$IndexToGo = $index * $TuplePerPagina;
 
 $sql = "SELECT Utente.NMatricola, Utente.Nome, Utente.Cognome, Libro.Titolo, Libro.ISBN,
 	Prestito.DataUscita, Prestito.Restituzione, Dipartimento.Nome, Dipartimento.Via, Dipartimento.NCivico, 
@@ -22,49 +12,27 @@ $sql = "SELECT Utente.NMatricola, Utente.Nome, Utente.Cognome, Libro.Titolo, Lib
 
 
 $result = mysqli_query($link, $sql);
-$countP = 0;
-$Npage = 0;
 $TotTupleT = 0;
 
 while (mysqli_fetch_array($result)) {
-	$countP++;
 	$TotTupleT++;
 }
-if (($countP % $TuplePerPagina) != 0) {
-	$Npage++;
-}
-$countP = (int) ($countP / $TuplePerPagina);
-$Npage += $countP;
 
 $result = mysqli_query($link, $sql);
 
-$countS = 0;
-$countG = 0;
-
-$htmlPage = "";
 $Html = "";
 
-
-for ($i = 0; $i < $Npage; $i++) {
-	$p = $i + 1;
-	$htmlPage = $htmlPage . "<a type='page' href='query6.php?index=$i'>$p</a>";
-}
-
 while ($row = mysqli_fetch_array($result)) {
-	$countG++;
 
-	if ($countG > $IndexToGo) {
-		$countS++;
-		if ($countS <= $TuplePerPagina) {
-			$state = "Non restituito";
-			if ($row[6] == 1) {
-				$state = "Restituito";
-			}
+	if ($row[6] == 0) {
+		$state = "Non restituito";
+	if ($row[6] == 1) {
+		$state = "Restituito";
+	}
 
-			$Html = $Html . "<tr><td>$row[0]</td> <td>$row[1]</td> <td>$row[2]</td><td>$row[3]</td>
-				<td>$row[4]</td><td>$row[5]</td><td>$state</td>
-				<td>$row[7]</td><td>$row[8], N.$row[9], $row[11], $row[10]</td></tr>";
-		}
+	$Html = $Html . "<tr><td>$row[0]</td> <td>$row[1]</td> <td>$row[2]</td><td>$row[3]</td>
+		<td>$row[4]</td><td>$row[5]</td><td>$state</td>
+		<td>$row[7]</td><td>$row[8], N.$row[9], $row[11], $row[10]</td></tr>";
 	}
 }
 
@@ -102,12 +70,6 @@ mysqli_close($link);
 
 	<hr><br>
 
-	<fieldset>
-		<h4 style="text-align:center">Pagina
-			<?php echo $index + 1; ?> di
-			<?php echo $Npage; ?>
-		</h4>
-	</fieldset>
 	<h3 type="des">Totale prestiti trovati:
 		<?php echo $TotTupleT; ?>
 	</h3>
@@ -129,16 +91,13 @@ mysqli_close($link);
 
 	</table>
 
-	<hr>
-	<div style="text-align:center;">
-		<?php echo $htmlPage; ?>
-	</div>
-
 	<br>
 
 	<div class="centerLink"><a href="index.html" style="text-align:center;">Torna alla homepage</a></div>
 
+
 	<br>
+
 	<hr>
 
 	<footer style="text-align: center;">
