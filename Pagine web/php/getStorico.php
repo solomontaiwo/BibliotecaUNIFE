@@ -4,7 +4,7 @@ $nome = $_POST["Nome"];
 $cognome = $_POST["Cognome"];
 $matricola = $_POST["NMatricola"];
 
-include_once 'php/connessione.php';
+include_once ('connessione.php');
 
 if (empty($matricola)) {
     $sql = "SELECT *
@@ -24,7 +24,7 @@ $TotTupleT = 0;
 while ($row = mysqli_fetch_array($result)) {
     $TotTupleT++;
     $Html = $Html . "<tr><td>$row[0]</td> <td>$row[1]</td> <td>$row[2]</td> <td>$row[3]</td> <td>$row[4]</td> <td>$row[5]</td> <td>$row[6]</td> <td>$row[7]</td> 
-        <td><form action='php/getPrestiti.php' method='POST'>
+        <td><form action='getPrestiti.php' method='POST'>
 		<input type='hidden' value='$row[0]' name='matricola'><input type='submit' style=' width: 100%;' value='Prestiti'>
 		</form></td></tr>";
 }
@@ -58,12 +58,12 @@ mysqli_close($link);
 
 <body>
 
-    <div style="text-align: center;"><a href="index.html"><img src="immagini/logo_unife.png" height="100px" width="200px"></a></div>
+    <div style="text-align: center;"><a href="../index.html"><img src="../immagini/logo_unife.png" height="100px" width="200px"></a></div>
     <h1 style="text-align: center;">Gestione Biblioteca UNIFE - Ricerca utente e storico</h1>
 
     <hr><br>
 
-    <form action="query5.php" method="POST">
+    <form action="getStorico.php" method="POST">
         <fieldset>
 
             <p style="text-align: center">
@@ -100,7 +100,7 @@ mysqli_close($link);
 
     <br>
 
-    <div class="centerLink"><a href="index.html" style="text-align:center;">Torna alla homepage</a></div>
+    <div class="centerLink"><a href="../index.html" style="text-align:center;">Torna alla homepage</a></div>
 
     <br>
     <hr>
