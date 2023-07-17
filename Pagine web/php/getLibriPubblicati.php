@@ -53,7 +53,7 @@ mysqli_close($link);
     <hr><br>
 
     <fieldset>
-        <h2 style="margin-left: 48%;"><?php echo $Html ?></h2>
+        <h2 style="text-align: center"><?php echo $Html ?></h2>
     </fieldset>
 
     <br>

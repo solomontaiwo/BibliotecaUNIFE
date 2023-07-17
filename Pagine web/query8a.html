@@ -12,6 +12,10 @@
             justify-content: center;
             align-items: center;
         }
+
+        .slidecontainer {
+            width: 100%;
+        }
     </style>
 </head>
 
@@ -26,9 +30,9 @@
     <form action="php/getLibriPubblicati.php" method="POST">
         <fieldset>
             <p style="text-align: center"> Numero di libri pubblicati in un determinato anno</p>
-            <div class="slidecontainer">
-                <input type="range" min="2010" max="2020" value="50" class="slider" id="myRange" name="anno">
-                <h2 style="margin-left: 50%"><span id="demo"></span></h2>
+            <div class="slidecontainer" style="width: 100;">
+                <input type="range" min="2010" max="2020" value="50" class="slider" id="myRange" name="anno" style="width: 100%;">
+                <h2 style="text-align: center"><span id="demo"></span></h2>
             </div>
             <input style="width: 100%; " type="submit" value="Invia" />
         </fieldset>
