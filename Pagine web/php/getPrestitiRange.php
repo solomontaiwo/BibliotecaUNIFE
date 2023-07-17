@@ -1,12 +1,11 @@
 <?php
 
-include_once('php/connessione.php');
+include_once('connessione.php');
 
-$Data1 = $_POST["data1"];
-$Data2 = $_POST["data2"];
+$Data1 = $_POST["data1"] or 'Default';
+$Data2 = $_POST["data2"] or 'Default';
 $Data1G = $_GET["data1"];
 $Data2G = $_GET["data2"];
-$index = $_GET["index"];
 
 if (!empty($Data1G)) {
     $Data1 = $Data1G;
@@ -19,16 +18,7 @@ $giorni = 30;
 $countTotPrestiti = 0;
 $flagResult = 0;
 
-
 $TuplePerPagina = 50;
-
-if (empty($index)) {
-    $index = 0;
-}
-
-
-$IndexToGo = $index * $TuplePerPagina;
-
 
 if (empty($Data1) && empty($Data2)) {
     $sql = "SELECT Utente.NMatricola, Utente.Nome, Utente.Cognome, Utente.NTelefono, Utente.Via, Utente.NCivico, Utente.Cap, Utente.Città, Libro.Titolo, Libro.ISBN, Prestito.DataUscita, Prestito.Restituzione, Dipartimento.Nome, Dipartimento.Via, Dipartimento.NCivico, Dipartimento.Cap, Dipartimento.Città
@@ -61,61 +51,37 @@ ORDER BY Prestito.DataUscita;";
     $flagResult = 1;
 }
 
-
 $result = mysqli_query($link, $sql);
-$countP = 0;
 $Npage = 0;
 $TotTupleT = 0;
 
 while (mysqli_fetch_array($result)) {
-    $countP++;
     $TotTupleT++;
 }
-if (($countP % $TuplePerPagina) != 0) {
-    $Npage++;
-}
-$countP = (int) ($countP / $TuplePerPagina);
-$Npage += $countP;
-
 
 $result = mysqli_query($link, $sql);
-$countS = 0;
 $countG = 0;
 
-$htmlPage = "";
 $Html = "";
-
-for ($i = 0; $i < $Npage; $i++) {
-    $p = $i + 1;
-
-    $htmlPage = $htmlPage . "<a type='page' href='query7.php?index=$i&&data1=$Data1&&data2=$Data2'>$p</a>";
-}
-$htmlPage = $htmlPage . "</table>";
-
 
 while ($row = mysqli_fetch_array($result)) {
     $countTotPrestiti++;
-    $countG++;
 
-    if ($countG > $IndexToGo) {
-        $countS++;
-        if ($countS <= $TuplePerPagina) {
-            $state = "Non restituito";
-            if ($row[11] == 1) {
-                $state = "Restituito";
-            }
-
-            $date = strtotime("+$giorni day", strtotime("$row[10]"));
-            $dataRientro = date("Y-m-d", $date);
-
-
-            $Html = $Html . "<tr><td>$row[10]</td><td>$dataRientro</td><td>$state</td>
-	<td>$row[0]</td> <td>$row[1]</td> <td>$row[2]</td><td>$row[3]</td>
-	<td>$row[4], N.$row[5], $row[7], $row[6]</td>
-	<td>$row[8]</td><td>$row[9]</td>
-	<td>$row[12]</td><td>$row[13], N.$row[14], $row[16], $row[15]</td></tr>";
-        }
+    if ($row[11] == 0) {
+        $state = "Non restituito";
     }
+    if ($row[11] == 1) {
+        $state = "Restituito";
+    }
+
+    $date = strtotime("+$giorni day", strtotime("$row[10]"));
+    $dataRientro = date("Y-m-d", $date);
+
+    $Html = $Html . "<tr><td>$row[10]</td><td>$dataRientro</td><td>$state</td>
+	    <td>$row[0]</td> <td>$row[1]</td> <td>$row[2]</td><td>$row[3]</td>
+	    <td>$row[4], N.$row[5], $row[7], $row[6]</td>
+	    <td>$row[8]</td><td>$row[9]</td>
+	    <td>$row[12]</td><td>$row[13], N.$row[14], $row[16], $row[15]</td></tr>";
 }
 
 if ($flagResult == 0) {
@@ -159,12 +125,12 @@ mysqli_close($link);
 
 <body>
 
-    <div style="text-align: center;"><a href="index.html"><img src="immagini/logo_unife.png" height="100px" width="200px"></a></div>
+    <div style="text-align: center;"><a href="../index.html"><img src="../immagini/logo_unife.png" height="100px" width="200px"></a></div>
     <h1 style="text-align: center;">Gestione Biblioteca UNIFE - Prestiti effettuati in un range di date</h1>
 
     <hr><br>
 
-    <form action="query7.php" method="POST">
+    <form action="getPrestitiRange.php" method="POST">
         <fieldset>
             <p style="text-align:center">
                 Ricerca dei prestiti effettuati in un range di date – nel caso in cui non vengano inserite date deve mostrare i prossimi in scadenza (quelli che scadranno in futuro)
@@ -174,20 +140,16 @@ mysqli_close($link);
                 <input style="text-align:center" type="date" name="data2" placeholder="Seconda data">
                 <input style="width: 100%; " type="submit" value="Invia" />
             </div>
-
             <br>
-            <div>
-                <h4 style="text-align:center">Pagina
-                    <?php echo $index + 1; ?> di
-                    <?php echo $Npage; ?>
-                </h4>
-            </div>
+            
         </fieldset>
     </form>
     <h3>
         <?php echo $ResultForHTML ?>
     </h3>
     <hr>
+
+    <br>
 
     <table style="width:100%">
         <tr>
@@ -208,13 +170,9 @@ mysqli_close($link);
 
     </table>
 
-    <div style="text-align:center">
-        <?php echo $htmlPage; ?>
-    </div>
-
     <br>
 
-    <div class="centerLink"><a href="index.html" style="text-align:center;">Torna alla homepage</a></div>
+    <div class="centerLink"><a href="../index.html" style="text-align:center;">Torna alla homepage</a></div>
 
     <br>
     <hr>
