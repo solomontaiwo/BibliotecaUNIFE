@@ -63,7 +63,7 @@ mysqli_close($link);
             <th>Matricola</th>
             <th>Nome</th>
             <th>Cognome</th>
-            <th>Via</th>
+            <th>Indirizzo</th>
             <th>N. Civico</th>
             <th>Cap</th>
             <th>Città</th>
