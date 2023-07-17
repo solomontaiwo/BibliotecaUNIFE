@@ -2,10 +2,10 @@
 
 include_once('connessione.php');
 
-$Data1 = $_POST["data1"] or 'Default';
-$Data2 = $_POST["data2"] or 'Default';
-$Data1G = $_GET["data1"];
-$Data2G = $_GET["data2"];
+$Data1 = $_POST["data1"];
+$Data2 = $_POST["data2"];
+$Data1G = $_GET["data1"] ?? "";
+$Data2G = $_GET["data2"] ?? "";
 
 if (!empty($Data1G)) {
     $Data1 = $Data1G;
@@ -17,8 +17,6 @@ if (!empty($Data2G)) {
 $giorni = 30;
 $countTotPrestiti = 0;
 $flagResult = 0;
-
-$TuplePerPagina = 50;
 
 if (empty($Data1) && empty($Data2)) {
     $sql = "SELECT Utente.NMatricola, Utente.Nome, Utente.Cognome, Utente.NTelefono, Utente.Via, Utente.NCivico, Utente.Cap, Utente.Città, Libro.Titolo, Libro.ISBN, Prestito.DataUscita, Prestito.Restituzione, Dipartimento.Nome, Dipartimento.Via, Dipartimento.NCivico, Dipartimento.Cap, Dipartimento.Città
@@ -52,7 +50,6 @@ ORDER BY Prestito.DataUscita;";
 }
 
 $result = mysqli_query($link, $sql);
-$Npage = 0;
 $TotTupleT = 0;
 
 while (mysqli_fetch_array($result)) {
@@ -60,7 +57,6 @@ while (mysqli_fetch_array($result)) {
 }
 
 $result = mysqli_query($link, $sql);
-$countG = 0;
 
 $Html = "";
 
@@ -135,13 +131,12 @@ mysqli_close($link);
             <p style="text-align:center">
                 Ricerca dei prestiti effettuati in un range di date – nel caso in cui non vengano inserite date deve mostrare i prossimi in scadenza (quelli che scadranno in futuro)
             </p>
-            <div class="date" aling="center">
-                <input style="text-align:center" type="date" name="data1" placeholder="Prima data">
-                <input style="text-align:center" type="date" name="data2" placeholder="Seconda data">
-                <input style="width: 100%; " type="submit" value="Invia" />
-            </div>
+            <div class="date" style="text-align: center;">
+                <input style="width: 100%; text-align:center;" type="date" name="data1" placeholder="Prima data">
+                <input style="width: 100%; text-align:center;" type="date" name="data2" placeholder="Seconda data">
+                <input style="width: 100%;" type="submit" value="Invia" />
+            </div>   
             <br>
-            
         </fieldset>
     </form>
     <h3>
