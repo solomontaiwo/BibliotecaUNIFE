@@ -2,17 +2,21 @@
 include_once('connessione.php');
 $nomeLibro = $_POST["nomeLibro"];
 
-$sql = "SELECT Libro.Titolo
-	FROM BibliotecaUNIFE.Libro 
-	WHERE Titolo LIKE '%" . $nomeLibro . "%'";
+$sql = "SELECT Libro.Titolo, Dipartimento.Nome
+	FROM BibliotecaUNIFE.Libro, BibliotecaUNIFE.Prestito, BibliotecaUNIFE.Dipartimento
+	WHERE Titolo LIKE '%" . $nomeLibro . "%' AND Restituzione = '1' AND Libro.CodDip = Dipartimento.CodDip";
 
 $result = mysqli_query($link, $sql);
-
 $Html = "";
 
-while ($row = mysqli_fetch_array($result)) {
-	$Html =  $Html . "<tr><td>$row[0]</td> <td>$row[2]</td><td>$row[3]</td><td>$row[4]</td></tr>";
+if (empty($result)) {
+    echo "Il libro non è disponibile perchè non ancora restituito";
+} else {
+    $row = mysqli_fetch_array($result);
+    $Html =  $Html . "<tr><td>$row[0]</td> <td>$row[1]</td>";
 }
+
+
 
 mysqli_close($link);
 ?>
@@ -23,7 +27,7 @@ mysqli_close($link);
 <head>
 	<meta charset="utf-8">
 
-	<title>Ricerca libro</title>
+	<title>Disponibilità libro</title>
 
 	<style>
 		body {
