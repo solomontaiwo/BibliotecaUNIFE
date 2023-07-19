@@ -3,7 +3,6 @@ include_once('connessione.php');
 $nomeLibro = $_POST["nomeLibro"];
 
 $sql = "SELECT Libro.CodLibro, Libro.Titolo, Libro.ISBN, Libro.Lingua, Libro.AnnoPubb, Libro.CodDip
-
 	FROM BibliotecaUNIFE.Libro 
 	WHERE Titolo LIKE '%" . $nomeLibro . "%'";
 
