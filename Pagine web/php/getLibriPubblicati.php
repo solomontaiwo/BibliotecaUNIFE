@@ -4,9 +4,8 @@ $Anno = $_POST["anno"];
 include_once('connessione.php');
 
 $sql = "SELECT COUNT(Libro.CodLibro)
-            FROM Libro
-            WHERE Libro.AnnoPubb = '$Anno';
-	          ";
+        FROM Libro
+        WHERE Libro.AnnoPubb = '$Anno';";
 
 $result = mysqli_query($link, $sql);
 
