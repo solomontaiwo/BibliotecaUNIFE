@@ -2,22 +2,24 @@
 
 include_once('php/connessione.php');
 
-$sql = "SELECT Autore.CodAutore, Autore.Nome, Autore.Cognome , Autore.DataNascita, Autore.LuogoNascita, COUNT(Libro.CodLibro) AS N_libri
-            FROM Scrivere, Libro, Autore
-            WHERE Scrivere.CodAutore = Autore.CodAutore AND
-            Scrivere.CodLibro = Libro.CodLibro
-            GROUP BY Autore.CodAutore
-        ";
+$sql = "SELECT Libro.CodLibro, Libro.Titolo, COUNT(Prestito.CodLibro) AS NumeroPrestiti
+        FROM Libro
+        JOIN Prestito ON Libro.CodLibro = Prestito.CodLibro
+        GROUP BY Libro.CodLibro, Libro.Titolo
+        ORDER BY NumeroPrestiti DESC
+        LIMIT 1;
+    ";
 
 $result = mysqli_query($link, $sql);
 
 $Html = "";
 
 while ($row = mysqli_fetch_array($result)) {
-    $Html =  $Html . "<tr><td>$row[1]</td> <td>$row[2]</td><td>$row[3]</td><td>$row[4]</td><td>$row[5]</td></tr>";
+    $Html =  $Html . "<tr><td>$row[1]</td> <td>$row[2]</tr>";
 }
 
 mysqli_close($link);
+
 ?>
 
 <!DOCTYPE html>
@@ -54,10 +56,7 @@ mysqli_close($link);
     <table style="width:100%;">
         <tr>
             <th>Nome</th>
-            <th>Cognome</th>
-            <th>Data di nascita</th>
-            <th>Luogo di nascita</th>
-            <th>Numero di libri scritti</th>
+            <th>Numero prestiti</th>
         </tr>
         <?php echo $Html ?>
 
