@@ -2,20 +2,21 @@
 
 include_once('php/connessione.php');
 
-$sql = "SELECT Libro.CodLibro, Libro.Titolo, COUNT(Prestito.CodLibro) AS NumeroPrestiti
+$sql = "SELECT Libro.CodLibro, Libro.Titolo, Dipartimento.Nome, Libro.Lingua, COUNT(Prestito.CodLibro) AS NumeroPrestiti
         FROM Libro
         JOIN Prestito ON Libro.CodLibro = Prestito.CodLibro
-        GROUP BY Libro.CodLibro, Libro.Titolo
+        JOIN Dipartimento ON Libro.CodDip = Dipartimento.CodDip
+        GROUP BY Libro.CodLibro, Libro.Titolo, Dipartimento.Nome, Libro.Lingua
         ORDER BY NumeroPrestiti DESC
         LIMIT 1;
-    ";
+        ";
 
 $result = mysqli_query($link, $sql);
 
 $Html = "";
 
 while ($row = mysqli_fetch_array($result)) {
-    $Html =  $Html . "<tr><td>$row[1]</td> <td>$row[2]</tr>";
+    $Html =  $Html . "<tr><td>$row[0]</td> <td>$row[1]</td> <td>$row[2]</td> <td>$row[3]</td> <td>$row[4]</td></tr>";
 }
 
 mysqli_close($link);
@@ -51,11 +52,19 @@ mysqli_close($link);
     <div style="text-align: center;"><a href="index.html"><img src="immagini/logo_unife.png" height="100px" width="200px"></a></div>
     <h1 style="text-align: center;">Gestione Biblioteca UNIFE - Libro con maggiori prestiti</h1>
 
-    <hr><br>
+    <hr>
+
+    <p style="text-align: center">
+        Trova il libro con il maggior numero di prestiti eseguiti, in modo che il dipartimento
+        possa eventualmente ordinarne altre copie
+    </p>
 
     <table style="width:100%;">
         <tr>
+            <th>Codice libro</th>
             <th>Nome</th>
+            <th>Dipartimento</th>
+            <th>Lingua</th>
             <th>Numero prestiti</th>
         </tr>
         <?php echo $Html ?>
