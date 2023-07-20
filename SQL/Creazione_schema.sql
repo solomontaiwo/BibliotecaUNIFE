@@ -27,9 +27,9 @@ CREATE TABLE Utente (
     Cognome     VARCHAR(20),
     Via         VARCHAR(40),
     NCivico     VARCHAR(4),
-    Cap         CHAR(6),
+    Cap         CHAR(7),
     Città       VARCHAR(20),
-    NTelefono   VARCHAR(11),
+    NTelefono   VARCHAR(15),
     PRIMARY KEY (NMatricola),
     UNIQUE (NTelefono)
 );
@@ -39,7 +39,7 @@ CREATE TABLE Dipartimento (
     Nome        VARCHAR(50),
     Via         VARCHAR(30),
     NCivico     VARCHAR(4),
-    Cap         CHAR(6),
+    Cap         CHAR(7),
     Città       VARCHAR(30),
     PRIMARY KEY (CodDip),
     UNIQUE (Nome)
