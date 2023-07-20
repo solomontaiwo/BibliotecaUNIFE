@@ -1,4 +1,11 @@
 /* Modificare "/Applications/.../.csv" inserendo percorso assoluto corretto */
+
+/* 
+Nel caso vi siano errori nel caricamento dei dati (LOAD DATA INFILE RESTRICTION ACCESS): 
+editare la connessione, andare nel tab connection, advanced e nel riquadro 'Others' aggiungere la seguente linea: 
+OPT_LOCAL_INFILE=1
+*/
+
 LOAD DATA 
     LOCAL 
     INFILE '/Applications/MAMP/htdocs/SQL/Database/Author.csv' 
