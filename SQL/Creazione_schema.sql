@@ -3,6 +3,9 @@ GRANT ALL PRIVILEGES ON *.* TO 'userBibliotecaUNIFE' @'localhost'
 WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 
+/* Accedere all'utente appena creato per crearvi il database e per la connessione
+attraverso il file php connessione.php */
+
 /* 
  Eliminazione tabelle se pre-esistenti
  DROP TABLE IF EXISTS Utente
