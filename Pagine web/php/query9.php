@@ -65,7 +65,7 @@ mysqli_close($link);
     <form action="query9.php" method="POST">
 		<fieldset>
 			<p style="text-align: center">
-				Ricerca della disponibilità e del dipartimento in cui si trova un libro inserendo il titolo
+				Verifica presenza del libro richiesto ed ubicazione
 			</p>
 			<input style="width: 100%; " type="text" name="nomeLibro" placeholder="Scrivi qui il nome del libro">
 			<input style="width: 100%; " type="submit" value="Invia" />
