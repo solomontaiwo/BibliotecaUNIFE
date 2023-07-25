@@ -3,9 +3,11 @@
 include_once('connessione.php');
 $nomeLibro = $_POST["nomeLibro"];
 
-$sql = "SELECT L.CodLibro, L.Titolo, D.Nome, P.Restituzione
-    	FROM Libro L, Dipartimento D, Prestito P
-    	WHERE Titolo LIKE '%" . $nomeLibro . "%' /*L.Titolo = '$nomeLibro'*/ AND L.CodLibro = P.CodLibro AND P.CodLibro = L.CodLibro AND L.CodDip = D.CodDip";
+$sql = "SELECT Libro.CodLibro, Libro.Titolo, Dipartimento.Nome, Prestito.Restituzione
+    	FROM Libro, Dipartimento, Prestito
+    	WHERE Titolo LIKE '%" . $nomeLibro . "%' AND Libro.CodLibro = Prestito.CodLibro 
+		AND Prestito.CodLibro = Libro.CodLibro 
+		AND Libro.CodDip = Dipartimento.CodDip";
 
 $result = mysqli_query($link, $sql);
 
