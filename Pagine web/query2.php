@@ -7,26 +7,6 @@ $sql = "SELECT Autore.CodAutore, Autore.Nome, Autore.Cognome, Autore.DataNascita
     FROM BibliotecaUNIFE.Autore";
 
 $result = mysqli_query($link, $sql);
-$countP = 0;
-$Npage = 0;
-$TotTupleT = 0;
-
-while (mysqli_fetch_array($result)) {
-    $countP++;
-    $TotTupleT++;
-}
-
-if (($countP % $TuplePerPagina) != 0) {
-    $Npage++;
-}
-
-$countP = (int) ($countP / $TuplePerPagina);
-$Npage += $countP;
-
-$result = mysqli_query($link, $sql);
-
-$countS = 0;
-$countG = 0;
 
 $Html = "";
 
