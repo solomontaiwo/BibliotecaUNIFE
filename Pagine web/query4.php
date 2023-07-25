@@ -1,24 +1,17 @@
 <?php
 
-include_once 'php/connessione.php';
-$TuplePerPagina = 50;
+include_once('php/connessione.php');
 
 $sql = "SELECT *
-    FROM BibliotecaUNIFE.Utente";
+        FROM BibliotecaUNIFE.Utente";
 
 $result = mysqli_query($link, $sql);
 $TotTupleT = 0;
 
-while (mysqli_fetch_array($result)) {
-    $TotTupleT++;
-}
-
-$result = mysqli_query($link, $sql);
-
 $Html = "";
 
 while ($row = mysqli_fetch_array($result)) {
-
+    $TotTupleT++;
     $Html = $Html . "<tr><td>$row[0]</td> <td>$row[1]</td> <td>$row[2]</td> <td>$row[3]</td> <td>$row[4]</td> <td>$row[5]</td> <td>$row[6]</td> <td>$row[7]</td></tr>";
 }
 

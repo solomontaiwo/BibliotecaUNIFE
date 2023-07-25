@@ -1,11 +1,11 @@
 <?php
+
 include_once('connessione.php');
 $nomeLibro = $_POST["nomeLibro"];
 
 $sql = "SELECT L.CodLibro, L.Titolo, D.Nome, P.Restituzione
-
-    FROM Libro L, Dipartimento D, Prestito P
-    WHERE Titolo LIKE '%" . $nomeLibro . "%' /*L.Titolo = '$nomeLibro'*/ AND L.CodLibro = P.CodLibro AND P.CodLibro = L.CodLibro AND L.CodDip = D.CodDip";
+    	FROM Libro L, Dipartimento D, Prestito P
+    	WHERE Titolo LIKE '%" . $nomeLibro . "%' /*L.Titolo = '$nomeLibro'*/ AND L.CodLibro = P.CodLibro AND P.CodLibro = L.CodLibro AND L.CodDip = D.CodDip";
 
 $result = mysqli_query($link, $sql);
 
@@ -67,8 +67,8 @@ mysqli_close($link);
 			<p style="text-align: center">
 				Verifica presenza del libro richiesto ed ubicazione
 			</p>
-			<input style="width: 100%; " type="text" name="nomeLibro" placeholder="Scrivi qui il nome del libro">
-			<input style="width: 100%; " type="submit" value="Invia" />
+			<input style="width: 100%;" type="text" name="nomeLibro" placeholder="Scrivi qui il nome del libro">
+			<input style="width: 100%;" type="submit" value="Invia" />
 		</fieldset>
 	</form>
 

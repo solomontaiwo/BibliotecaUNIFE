@@ -26,7 +26,6 @@ mysqli_close($link);
 
     <title>Numero libri anno</title>
 
-
     <style>
         table,
         td,
@@ -52,7 +51,7 @@ mysqli_close($link);
     <hr><br>
 
     <fieldset>
-        <h2 style="text-align: center"><?php echo $Html ?></h2>
+        <h2 style="text-align: center">Libri pubblicati: <?php echo $Html ?></h2>
     </fieldset>
 
     <br>

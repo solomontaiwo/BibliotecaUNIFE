@@ -2,12 +2,11 @@
 
 include_once('php/connessione.php');
 
-$sql = "SELECT Autore.CodAutore, Autore.Nome, Autore.Cognome , Autore.DataNascita, Autore.LuogoNascita, COUNT(Libro.CodLibro) AS N_libri
-            FROM Scrivere, Libro, Autore
-            WHERE Scrivere.CodAutore = Autore.CodAutore AND
-            Scrivere.CodLibro = Libro.CodLibro
-            GROUP BY Autore.CodAutore
-        ";
+$sql = "SELECT Autore.CodAutore, Autore.Nome, Autore.Cognome, Autore.DataNascita, Autore.LuogoNascita, COUNT(Libro.CodLibro) AS N_libri
+        FROM Scrivere, Libro, Autore
+        WHERE Scrivere.CodAutore = Autore.CodAutore 
+        AND Scrivere.CodLibro = Libro.CodLibro
+        GROUP BY Autore.CodAutore";
 
 $result = mysqli_query($link, $sql);
 

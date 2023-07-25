@@ -20,12 +20,13 @@ $flagResult = 0;
 
 if (empty($Data1) && empty($Data2)) {
     $sql = "SELECT Utente.NMatricola, Utente.Nome, Utente.Cognome, Utente.NTelefono, Utente.Via, Utente.NCivico, Utente.Cap, Utente.Città, Libro.Titolo, Libro.ISBN, Prestito.DataUscita, Prestito.Restituzione, Dipartimento.Nome, Dipartimento.Via, Dipartimento.NCivico, Dipartimento.Cap, Dipartimento.Città
-FROM Utente, Prestito, Libro, Dipartimento
-WHERE Utente.NMatricola = Prestito.NMatricola AND
-Libro.CodLibro = Prestito.CodLibro AND
-Libro.CodDip = Dipartimento.CodDip AND Prestito.Restituzione = 0
-AND Prestito.DataUscita > date_sub(current_date(), INTERVAL '$giorni' DAY)
-ORDER BY Prestito.DataUscita;";
+            FROM Utente, Prestito, Libro, Dipartimento
+            WHERE Utente.NMatricola = Prestito.NMatricola 
+            AND Libro.CodLibro = Prestito.CodLibro 
+            AND Libro.CodDip = Dipartimento.CodDip 
+            AND Prestito.Restituzione = 0 
+            AND Prestito.DataUscita > date_sub(current_date(), INTERVAL '$giorni' DAY)
+            ORDER BY Prestito.DataUscita;";
     $flagResult = 0;
 } else {
 
@@ -41,26 +42,25 @@ ORDER BY Prestito.DataUscita;";
         exit();
     }
 
-    $sql = "SELECT Utente.NMatricola, Utente.Nome, Utente.Cognome, Utente.NTelefono, Utente.Via, Utente.NCivico, Utente.Cap, Utente.Città, Libro.Titolo, Libro.ISBN, Prestito.DataUscita, Prestito.Restituzione, Dipartimento.Nome, Dipartimento.Via, Dipartimento.NCivico, Dipartimento.Cap, Dipartimento.Città
-FROM Utente, Prestito, Libro, Dipartimento
-WHERE Utente.NMatricola = Prestito.NMatricola AND Libro.CodLibro = Prestito.CodLibro AND Libro.CodDip = Dipartimento.CodDip
-AND Prestito.DataUscita BETWEEN '$Data1' AND '$Data2'
-ORDER BY Prestito.DataUscita;";
+    $sql = "SELECT Utente.NMatricola, Utente.Nome, Utente.Cognome, Utente.NTelefono, Utente.Via, 
+            Utente.NCivico, Utente.Cap, Utente.Città, Libro.Titolo, Libro.ISBN, Prestito.DataUscita, 
+            Prestito.Restituzione, Dipartimento.Nome, Dipartimento.Via, Dipartimento.NCivico, Dipartimento.Cap, Dipartimento.Città
+            FROM Utente, Prestito, Libro, Dipartimento
+            WHERE Utente.NMatricola = Prestito.NMatricola 
+            AND Libro.CodLibro = Prestito.CodLibro 
+            AND Libro.CodDip = Dipartimento.CodDip
+            AND Prestito.DataUscita BETWEEN '$Data1' AND '$Data2'
+            ORDER BY Prestito.DataUscita;";
     $flagResult = 1;
 }
 
 $result = mysqli_query($link, $sql);
 $TotTupleT = 0;
 
-while (mysqli_fetch_array($result)) {
-    $TotTupleT++;
-}
-
-$result = mysqli_query($link, $sql);
-
 $Html = "";
 
 while ($row = mysqli_fetch_array($result)) {
+    $TotTupleT++;
     $countTotPrestiti++;
 
     if ($row[11] == 0) {

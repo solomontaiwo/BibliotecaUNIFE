@@ -1,10 +1,9 @@
 <?php
 
 include_once('php/connessione.php');
-$TuplePerPagina = 100;
 
 $sql = "SELECT Autore.CodAutore, Autore.Nome, Autore.Cognome, Autore.DataNascita, Autore.LuogoNascita 
-    FROM BibliotecaUNIFE.Autore";
+        FROM BibliotecaUNIFE.Autore";
 
 $result = mysqli_query($link, $sql);
 
@@ -16,7 +15,6 @@ while ($row = mysqli_fetch_array($result)) {
     <input type='hidden' value='$row[0]' name='codice'><input style=' width: 100%;' type='submit' value='Vedi libri'>
     </form></td></tr>";
 }
-
 
 mysqli_close($link);
 ?>

@@ -8,8 +8,7 @@ $sql = "SELECT Libro.CodLibro, Libro.Titolo, Dipartimento.Nome, Libro.Lingua, CO
         JOIN Dipartimento ON Libro.CodDip = Dipartimento.CodDip
         GROUP BY Libro.CodLibro, Libro.Titolo, Dipartimento.Nome, Libro.Lingua
         ORDER BY NumeroPrestiti DESC
-        LIMIT 1;
-        ";
+        LIMIT 1";
 
 $result = mysqli_query($link, $sql);
 

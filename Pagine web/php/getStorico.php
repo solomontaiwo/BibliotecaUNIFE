@@ -8,12 +8,12 @@ include_once ('connessione.php');
 
 if (empty($matricola)) {
     $sql = "SELECT *
-	    FROM BibliotecaUNIFE.Utente
-	    WHERE Utente.Nome LIKE '%" . $nome . "%' AND Utente.Cognome LIKE '%" . $cognome . "%'";
+	        FROM BibliotecaUNIFE.Utente
+	        WHERE Utente.Nome LIKE '%" . $nome . "%' AND Utente.Cognome LIKE '%" . $cognome . "%'";
 } else {
     $sql = "SELECT *
-		FROM BibliotecaUNIFE.Utente
-		WHERE Utente.NMatricola = '$matricola' AND Utente.Nome LIKE '%" . $nome . "%' AND Utente.Cognome LIKE '%" . $cognome . "%'";
+		    FROM BibliotecaUNIFE.Utente
+		    WHERE Utente.NMatricola = '$matricola' AND Utente.Nome LIKE '%" . $nome . "%' AND Utente.Cognome LIKE '%" . $cognome . "%'";
 }
 
 $result = mysqli_query($link, $sql);

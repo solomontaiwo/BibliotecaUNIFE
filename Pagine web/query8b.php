@@ -3,7 +3,7 @@
 include_once('php/connessione.php');
 
 $sql = "SELECT *
-	FROM BibliotecaUNIFE.Dipartimento";
+	    FROM BibliotecaUNIFE.Dipartimento";
 
 $result = mysqli_query($link, $sql);
 
