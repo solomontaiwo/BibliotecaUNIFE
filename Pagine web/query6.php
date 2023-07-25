@@ -7,7 +7,6 @@ $sql = "SELECT Utente.NMatricola, Utente.Nome, Utente.Cognome, Libro.Titolo, Lib
 		WHERE Utente.NMatricola = Prestito.NMatricola AND Libro.CodLibro = Prestito.CodLibro AND Libro.CodDip = Dipartimento.CodDip
 		ORDER BY Prestito.DataUscita DESC";
 
-
 $result = mysqli_query($link, $sql);
 $TotTupleT = 0;
 
@@ -87,7 +86,6 @@ mysqli_close($link);
 	<br>
 
 	<div class="centerLink"><a href="index.html" style="text-align:center;">Torna alla homepage</a></div>
-
 
 	<br>
 
