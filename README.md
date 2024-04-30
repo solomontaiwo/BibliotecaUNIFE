@@ -6,4 +6,4 @@ Group n. 6, Gaia Marzola - Solomon Olamide Taiwo
 
 ## Screenshots
 
-<img src="Pagine web/immagini/full-hd-BibliotecaUNIFE.png" max-width="200" height="auto">
+<img src="Pagine web/immagini/full-hd-BibliotecaUNIFE.png" max-width="480" height="270">
